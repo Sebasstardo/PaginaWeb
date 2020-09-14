@@ -30,7 +30,8 @@ function validarRut(){
       return false;
   }
   return true;
-}
+};
+
 function validarFecha(){
     var fechaForm = document.getElementById("txtfecha").value; 
      var fechaSistema = new Date();
@@ -40,14 +41,23 @@ function validarFecha(){
      var dia = fechaForm.slice(8, 10); 
      /////////////////////////////////////////
      var fechaMia = new Date (ano, (mes-1), dia);
+     var anosis = fechaSistema.slice(0,4);
     //////////////////////////////////////// 
+    var edad = document.getElementById("txtedad").value;
+    alert("anosis" + anosis);
+    alert("ano " + ano);
+    alert("edad " + edad);
+    if ((anosis - ano) != edad){
+        alert("Fecha no coincide con edad");
+        return false;
+    }
     if (fechaMia > fechaSistema) {
         alert("fecha de nacimiento incorrecto");
         return false;
     }
-
     return true;
-}
+};
+
 function validarTodo(){ /*metodo que que llamara a los otra validaciones, si hay algo que tenga malo va a enviar un false*/
     var resp;
     resp=validarRut();/* si la respuesta es verdadera seguira leyendo las otras*/
@@ -63,4 +73,4 @@ function validarTodo(){ /*metodo que que llamara a los otra validaciones, si hay
     
 
 
-}
+};
