@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CarWash</title>
+        <link rel="stylesheet" href="{% static 'css/galeria.css' %}">
+       <link rel="stylesheet" href="{% static 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css' %}">
+        <script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' %}"></script>
+        <script src="{% static 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js' %}"></script>
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
+
+        <script>
+                $(document).ready(function () {
+                        $('.slider').bxSlider();
+                });
+        </script>
+
+</head>
+
+<body>
+    <header>
+                <input type="checkbox" name="" id="btnMenu">
+                <label for="btnMenu">
+                        <img class="imgl" src="{% static 'fotos/menu.png'%}" width="20px" height="20px" alt="">
+                </label>
+                <nav class="menu">
+                                <div class="logo">
+                                                <img style=" margin-left:20px;  margin-top:10px; " src="{% static 'fotos/carwash.png'%}"  alt=""> 
+                                                <h3 style=" margin-left:70px; color:white;font-family: 'Poppins'; margin-top:-36px;  "  > CarWashMiguel</h3>
+                                        </div>
+                        
+                        <ul >      
+                                <li> <a href="{%url 'IND' %}">Home</a></li>                                       
+                                <li><a href="{%url 'NOS' %}">Nosotros</a> </li>
+                                <li><a href="{%url 'CON' %}">Contacto</a> </li>
+                                
+
+                                {%if user.is_authenticated %}
+                                        <li><a href="{%url 'ADP' %}">Administrar Insumos</a> </li>                                                                             
+                                       <li> <a href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
+                                        <li><a href="">Bienvenido: {{user.first_name}}</a> </li>
+                                {% else %}
+                                       <li>  <a href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
+                                        <li> <a href="{%url 'FORC' %}">Nuevo Usuario</a></li>
+                                {% endif %}
+
+                                                       
+                        </ul>
+                </nav>
+        </header>
+
+        <div class="row">
+          <div class="contenido">
+                <h1>Empleados</h1>
+              <div class="galeria">
+                <a target="_blank" href="fotos/empleados/emp7.jpg">
+                  <img src="{% static 'fotos/empleados/emp7.jpg' %}"  width="600" height="400">
+                </a>  
+              </div>
+              
+              <div class="galeria">
+                <a target="_blank" href="fotos/empleados/emp3.jpg">
+                  <img src="{%static 'fotos/empleados/emp3.jpg'%}" alt="Forest" width="600" height="400">
+                </a>
+              </div>
+              
+              <div class="galeria">
+                <a target="_blank" href="fotos/empleados/emp6.jpg">
+                  <img src="{%static 'fotos/empleados/emp6.jpg'%}" alt="Northern Lights" width="600" height="400">
+                </a>
+              </div>
+              
+              <div class="galeria">
+                <a target="_blank" href="fotos/empleados/emp8.jpg">
+                  <img src="{%static 'fotos/empleados/emp8.jpg'%}" alt="Mountains" width="600" height="400">
+                </a>
+                </div>
+                <div class="galeria">
+                  <a target="_blank" href="fotos/empleados/empb.jpg">
+                    <img src="{%static 'fotos/empleados/empb.jpg'%}" alt="Mountains" width="600" height="400">
+                  </a>
+                  </div>
+                  <div class="galeria">
+                    <a target="_blank" href="fotos/empleados/empn.jpg">
+                      <img src="{%static 'fotos/empleados/empn.jpg'%}" alt="Mountains" width="600" height="400">
+                    </a>
+                    </div>
+        </div>
+      </div>
+      <div class="line"></div>
+
+      <div class="row">
+        <div class="contenido2">
+            <h1>Instalacion</h1>
+            <div class="galeria">
+                <a target="_blank" href="fotos/instalacion/inst1.jpg">
+                    <img src="{%static 'fotos/instalacion/inst1.jpg'%}"  width="600" height="400">
+                </a>             
+            </div>
+                      
+            <div class="galeria">
+                <a target="_blank" href="fotos/instalacion/inst2.jpg">
+                  <img src="{%static 'fotos/instalacion/inst2.jpg'%}"  width="600" height="400">
+                </a>               
+            </div>
+                      
+            <div class="galeria">
+                <a target="_blank" href="fotos/instalacion/inst3.png">
+                    <img src="{%static 'fotos/instalacion/inst3.png'%}"  width="600" height="400">
+                </a>                        
+            </div>
+
+            <div class="galeria">
+                <a target="_blank" href="fotos/instalacion/inst4.jpg">
+                    <img src="{%static 'fotos/instalacion/inst4.jpg'%}"  width="600" height="400">
+                </a>
+                     
+            </div>
+            <div class="galeria">
+              <a target="_blank" href="fotos/instalacion/inst5.jpg">
+                  <img src="{%static 'fotos/instalacion/inst5.jpg'%}"  width="600" height="400">
+              </a>
+                   
+          </div>
+          <div class="galeria">
+            <a target="_blank" href="fotos/instalacion/inst6.jpg">
+                <img src="{%static 'fotos/instalacion/inst6.jpg'%}"  width="600" height="100">
+            </a>
+                 
+        </div>
+
+
+        </div>
+      </div>
+        <footer>
+            <div class="footer">
+                <h5>Copyright 2020 © Todos Los Derechos Reservados</h5>      
+            </div>
+        </footer>
+</body>
+
+</html>

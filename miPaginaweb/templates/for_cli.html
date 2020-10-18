@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>CarWash</title>
+        <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
+      
+</head>
+        <body>
+                <header>
+                <input type="checkbox" name="" id="btnMenu">
+                <label for="btnMenu">
+                        <img class="imgl" src="{% static 'fotos/menu.png'%}" width="20px" height="20px" alt="">
+                </label>
+                <nav class="menu">
+                                <div class="logo">
+                                                <img style=" margin-left:20px;  margin-top:10px; " src="{% static 'fotos/carwash.png'%}"  alt=""> 
+                                                <h3 style=" margin-left:70px; color:white;font-family: 'Poppins'; margin-top:-36px;  "  > CarWashMiguel</h3>
+                                        </div>
+                        
+                        <ul >     <li><a href="{%url 'IND' %}">Home</a> </li>                                        
+                                <li><a href="{%url 'NOS' %}">Nosotros</a> </li>
+                                <li> <a href="{%url 'GALE' %}">Galeria</a></li>
+                                <li><a href="{%url 'CON' %}">Contacto</a> </li>
+                                
+
+                                {%if user.is_authenticated %}
+                                        <li><a href="{%url 'ADP' %}">Administrar Insumos</a> </li>                                                                             
+                                       <li> <a href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
+                                        <li><a href="">Bienvenido: {{user.first_name}}</a> </li>
+                                {% else %}
+                                       <li>  <a href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
+                                {% endif %}
+
+                                                       
+                        </ul>
+                </nav>
+        </header>
+        <script src="{% static 'js/scripts.js' %}"></script>
+       
+<form action="" class="login-form"  method="POST" class="form1" onsubmit="return validarTodo()">
+        {% csrf_token %}
+  <p class="login-text">
+       <h2 style="color:rgba(255, 255, 255, 0.63);font-family: 'Poppins'; padding: 20px 50px; " >Registro de usuario</h2>       
+  </p>
+        <input type="text" class="login-username" autofocus="true" required="true" placeholder="Nombre" name="txtNombre" id="txtnombre" />
+        <input type="text" class="login-username" autofocus="true" required="true" placeholder="Apellido" name="txtApellido" id="txtapellido" />
+        <input type="mail" class="login-username" autofocus="true" required="true" placeholder="Correo" name="txtCorreo" id="txtcorreo" />
+        <input type="text" class="login-username" autofocus="true" required="true" placeholder="Nombre Usuario" name="txtUsuario" id="txtusuario"/>
+        <input type="password" class="login-username" autofocus="true" required="true" placeholder="Contraseña" name="clave1"  id="txtclave1" />
+        <input type="password" class="login-password" autofocus="true" required="true" placeholder="Repetir Contraseña" name="clave2" id="txtclave1" />
+
+  <input type="submit" name="Login" value="Registrar" class="login-submit" />
+</form>
+
+<div class="underlay-photo"></div>
+<div class="underlay-black"></div> 
+
+                {% if sw == 1%}
+                        <script>
+                                
+                                setTimeout(function(){ alert("Usuario ya Existe"); }, 500);
+
+                        </script>
+                {% endif %}   
+                 {% if sw == 2%}
+                        <script>
+                                
+                                setTimeout(function(){ alert("Contraseña Incorrecta, Escriba Nuevamente"); }, 500);
+
+                        </script>
+                {% endif %}            
+              
+
+
+</body>
+
+    

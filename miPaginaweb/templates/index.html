@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title src="{% static 'fotos/cliente/sergio'%}.jpg">CarWash </title>
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="stylesheet" href="{% static 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
+        
+        {% csrf_token %}
+
+        <script>
+                $(document).ready(function () {
+                        $('.slider').bxSlider();
+                });
+        </script>
+
+</head>
+
+<body>
+        <header>
+                <input type="checkbox" name="" id="btnMenu">
+                <label for="btnMenu">
+                        <img class="imgl" src="{% static 'fotos/menu.png'%}" width="20px" height="20px" alt="">
+                </label>
+                <nav class="menu">
+                                <div class="logo">
+                                                <img style=" margin-left:20px;  margin-top:10px; " src="{% static 'fotos/carwash.png'%}"  alt=""> 
+                                                <h3 style=" margin-left:70px; color:white;font-family: 'Poppins'; margin-top:-36px;  "  > CarWashMiguel</h3>
+                                        </div>
+                        
+                        <ul >                                             
+                                <li><a href="{%url 'NOS' %}">Nosotros</a> </li>
+                                <li> <a href="{%url 'GALE' %}">Galeria</a></li>
+                                <li><a href="{%url 'CON' %}">Contacto</a> </li>
+                                
+
+                                {%if user.is_authenticated %}
+                                        <li><a href="{%url 'ADP' %}">Administrar Insumos</a> </li>                                                                             
+                                       <li> <a href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
+                                        <li><a href="">Bienvenido: {{user.first_name}}</a> </li>
+                                {% else %}
+                                       <li>  <a href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
+                                        <li> <a href="{%url 'FORC' %}">Nuevo Usuario</a></li>
+                                {% endif %}
+
+                                                       
+                        </ul>
+                </nav>
+        </header>
+
+        <div class="foto_cont">
+                <div class="main">
+                        <div class="titulo1">
+                                <h1>¿Quieres que tu auto</h1>
+                        </div>
+
+                        <div class="titulo2">
+                                <h1>se vea reluciente?</h1>
+                        </div>
+
+                        <div class="titulo3">
+                                <a href="{%url 'FORC' %}">
+                                        <h1>Reserva aqui</h1>
+                                </a>
+                        </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="side">
+                        <img src="{%static 'fotos/019-car service.png' %}"  width="120px" height="80px" alt="">
+                        <h2>Paquete 1</h2>
+                        <p>Lavado</p>
+                        <p>Secado</p>
+                        <p>Aspirado</p>
+                        <p>Brillo llantas</p>
+                        <h1>$10.000</h1>
+                </div>
+
+                <div class="side2">
+                        <img src="{%static 'fotos/027-car wash.png' %}" width="120px" height="80px" alt="">
+                        <h2> Paquete 2</h2>
+                        <p>Lavado</p>
+                        <p>Secado</p>
+                        <p>Aspirado</p>
+                        <p>Limpieza de tapetes</p>
+                        <p>Armorall interior</p>
+                        <p>Brillo en llantas</p>
+                        <h1>$15.000</h1>
+
+
+                </div>
+                <div class="side3">
+                        <img src="{%static 'fotos/013-polish.png' %}" width="120px" height="80px" alt="">
+                        <h2>Paquete 3</h2>
+                        <p>Lavado</p>
+                        <p>Secado</p>
+                        <p>Aspirado</p>
+                        <p>Limpieza de tapetes</p>
+                        <p>Armorall interior</p>
+                        <p>Brillo en llantas y hules</p>
+                        <p>Proceso de pinturas</p>
+                        <p>Lavado de chasis</p>
+                        <p>Aroma a gusto</p>
+                        <h1>$20.000</h1>
+                </div>
+        </div>
+
+
+        <div class="container">
+                <div class="slider">
+                       
+                        {% for item in autos  %}
+                                 <li><img style="width: 50%; height:600px;" src="{{item.imagen.url}}"></li>                       
+                        {% endfor %}
+                        
+
+                </div>
+        </div>
+
+        
+
+
+        <div class="title">
+                <h1>Nuestros clientes</h1>
+        </div>
+
+
+
+        <div class="container2">
+                <div class="slider">
+                        <li><img style="width: 300px" height="300px" src="{% static 'fotos/cliente/antonio'%}.jpg" alt="">
+                                <h5>"La mejor atencion de todas"</h5>
+                        </li>
+
+                        <li><img style="width: 300px" height="300px" src="{% static 'fotos/cliente/jonas'%}.jpg" alt="">
+                                <h5>"Nunca habia visto mi auto asi"</h5>
+                        </li>
+                        <li><img style="width: 300px" height="300px" src="{% static 'fotos/cliente/pabloski'%}.jpg" alt="">
+                                <h5>"Muy buen servicio y una grata atencion"</h5>
+                        </li>
+                        <li><img style="width: 300px" height="300px" src="{% static 'fotos/cliente/sergio'%}.jpg" alt="">
+                                <h5>"Tengo un nuevo auto ahora"</h5>
+                        </li>
+                </div>
+        </div>
+
+        <footer>
+                <div class="footer">
+                        <h5>Copyright 2020 © Todos Los Derechos Reservados</h5>      
+                </div>
+         </footer>
+
+
+</body>
+
+</html>
