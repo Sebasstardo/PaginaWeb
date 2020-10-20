@@ -16,30 +16,30 @@ from django.contrib.auth.decorators import login_required, permission_required
 # Create your views here.
 def logout_vista(request):
     logout(request)
-    return render(request,'web/PaginaWeb-007D-GRUPO6/index.html')
+    return render(request,'index.html')
 
 def login(request):
-    sw=0
+    sw = 0
     if request.POST:
         usuario = request.POST.get("usuario")
         password = request.POST.get("clave")
-        us = authenticate(request,username=usuario, password=password)
+        us = authenticate(request, username = usuario, password = password)
         if us is not None and us.is_active:
             login_autent(request,us)
-            return render(request,'web/PaginaWeb-007D-GRUPO6/index.html',{'user':us})
+            return render(request,'index.html', {'user' : us})
         else:
-            sw=1
-            return render(request,'web/PaginaWeb-007D-GRUPO6/login.html',{'sw':sw})
-    return render(request,'web/PaginaWeb-007D-GRUPO6/login.html')
+            sw = 1
+            return render(request,'login.html', {'sw' : sw})
+    return render(request,'login.html')
 
 
 def index(request):
     autos = SliderIndex.objects.all()
-    return render(request,'web/PaginaWeb-007D-GRUPO6/index.html',{'autos': autos})
+    return render(request,'index.html', {'autos' : autos})
 
 
 def galeria(request):
-    return render(request,'web/PaginaWeb-007D-GRUPO6/galeria.html')
+    return render(request,'galeria.html')
 
 
 def formulario(request):
@@ -51,13 +51,13 @@ def formulario(request):
         clave1 = request.POST.get("clave1")
         clave2 = request.POST.get("clave2")
         try:
-            u = User.objects.get(username=usuario)         
-            sw=1
-            return render(request,'web/PaginaWeb-007D-GRUPO6/for_cli.html',{'sw':sw})
+            u = User.objects.get(username = usuario)         
+            sw = 1
+            return render(request,'for_cli.html', {'sw' : sw})
         except:
-            if clave1!=clave2:               
-                sw=2
-                return render(request,'web/PaginaWeb-007D-GRUPO6/for_cli.html',{'sw':sw})
+            if clave1 != clave2:               
+                sw = 2
+                return render(request,'for_cli.html', {'sw' : sw})
             u = User()
             u.first_name = nombre
             u.last_name = apellido
@@ -65,19 +65,19 @@ def formulario(request):
             u.username = usuario
             u.set_password(clave1)
             u.save()
-            us = authenticate(request,username=usuario, password=clave1)
-            login_autent(request,us)
-            return render(request,'web/PaginaWeb-007D-GRUPO6/index.html',{'user':us}) 
-    return render(request,'web/PaginaWeb-007D-GRUPO6/for_cli.html')
+            us = authenticate(request, username = usuario, password = clave1)
+            login_autent(request, us)
+            return render(request,'index.html', {'user' : us}) 
+    return render(request,'for_cli.html')
 
 
 def contacto(request):
-    return render(request,'web/PaginaWeb-007D-GRUPO6/contacto.html')
+    return render(request,'contacto.html')
 
 
 def nosotros(request):
     myv= MisionVision.objects.all()
-    return render(request,'web/PaginaWeb-007D-GRUPO6/nosotros.html',{'myv':myv})
+    return render(request,'nosotros.html',{'myv' : myv})
 
 @login_required(login_url='/dentrar/')
 @permission_required ('miPaginaweb.add_insumo',login_url ='/dentrar/') 
@@ -90,7 +90,7 @@ def producto (request):
         stock = request.POST.get ("stock")
         desc = request.POST.get("desc")
         producto = request.POST.get("producto")
-        obj_producto = Producto.objects.get(tipo=producto)
+        obj_producto = Producto.objects.get(tipo = producto)
 
         ins = Insumo(
             nombre = nombre,
@@ -100,10 +100,10 @@ def producto (request):
             Producto = obj_producto
         )
         ins.save()
-        sw=1
-        return render (request,'web/PaginaWeb-007D-GRUPO6/producto.html',{'lista_productos':productos,'msg':'Grabo','sw':sw})
+        sw = 1
+        return render (request, 'producto.html',{'lista_productos' : productos, 'msg' : 'Grabo', 'sw' : sw})
 
-    return render (request,'web/PaginaWeb-007D-GRUPO6/producto.html',{'lista_productos':productos,'msg':'nn','sw':sw})
+    return render (request, 'producto.html',{'lista_productos' : productos, 'msg' : 'nn', 'sw' : sw})
    
 def admin_productos(request):
     sw=0
@@ -128,7 +128,7 @@ def admin_productos(request):
                 sw=4
             except:
                 sw=3
-            return render (request,'web/PaginaWeb-007D-GRUPO6/adminProd.html',{'lista_i':insumo,'lista_productos':productos,'msg':'Grabo','sw':sw})
+            return render (request,'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'msg':'Grabo','sw':sw})
 
         if accion =="Eliminar":
             nombre = request.POST.get("nombre")
@@ -138,7 +138,7 @@ def admin_productos(request):
                 sw=2
             except:
                 sw=3
-            return render (request,'web/PaginaWeb-007D-GRUPO6/adminProd.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
+            return render (request,'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
 
         if accion=="Registrar":
             nombre = request.POST.get("nombre")
@@ -157,10 +157,10 @@ def admin_productos(request):
             )
             ins.save()
             sw=1
-            return render (request,'web/PaginaWeb-007D-GRUPO6/adminProd.html',{'lista_i':insumo,'lista_productos':productos,'msg':'Grabo','sw':sw})
+            return render (request,'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'msg':'Grabo','sw':sw})
 
 
-    return render(request, 'web/PaginaWeb-007D-GRUPO6/adminProd.html',{'lista_i':insumo,'lista_productos':productos})
+    return render(request, 'adminProd.html',{'lista_i':insumo,'lista_productos':productos})
 
 def eliminar(request,id):
     try:
@@ -171,19 +171,19 @@ def eliminar(request,id):
         sw=3
     productos = Producto.objects.all()
     insumo = Insumo.objects.all()
-    return render(request, 'web/PaginaWeb-007D-GRUPO6/adminProd.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
+    return render(request, 'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
 
 def actualizar(request,id):
     productos = Producto.objects.all()
     try:
         ins = Insumo.objects.get(nombre=id)
         sw=4
-        return render (request,'web/PaginaWeb-007D-GRUPO6/actualizarP.html',{'ins':ins,'lista_productos':productos,'sw':sw})
+        return render (request,'actualizarP.html',{'ins':ins,'lista_productos':productos,'sw':sw})
     except:
         sw=3
    
     insumo = Insumo.objects.all()
-    return render(request, 'web/PaginaWeb-007D-GRUPO6/adminProd.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
+    return render(request, 'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
 
 def actualiza(request):
     productos = Producto.objects.all()
@@ -205,7 +205,7 @@ def actualiza(request):
             sw=4
         except:
             sw=3
-    return render (request,'web/PaginaWeb-007D-GRUPO6/adminProd.html',{'lista_i':insumo,'lista_productos':productos,'msg':'Grabo','sw':sw})
+    return render (request,'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'msg':'Grabo','sw':sw})
 
        
       

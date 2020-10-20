@@ -38,3 +38,4 @@ class MisionVision (models.Model):
         return self.indet
 
 
+
