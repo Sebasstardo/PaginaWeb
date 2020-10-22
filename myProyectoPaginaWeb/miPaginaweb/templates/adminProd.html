@@ -1,161 +1,90 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "Template.html" %}
 {% load static %}
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Formulario Registro</title>
-        <link rel="stylesheet" href="{% static 'css/producto2.css' %}">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        
-</head>
-<body>
-        <header>
-                <input type="checkbox" name="" id="btnMenu">
-                                <label for="btnMenu">
-                                        <img class="imgl" src="{% static 'fotos/menu.png'%}" width="20px" height="20px" alt="">
-                                </label>
-                                <nav class="menu">
-                                                <div class="logo">
-                                                                <img style=" margin-left:20px;  margin-top:10px; " src="{% static 'fotos/carwash.png'%}"  alt=""> 
-                                                                <h3 style=" margin-left:70px; color:white;font-family: 'Poppins'; margin-top:-36px;  "  > CarWashMiguel</h3>
-                                                        </div>
-                                        
-                                        <ul >                                             
-                                                <li><a href="{%url 'NOS' %}">Nosotros</a> </li>
-                                                <li> <a href="{%url 'GALE' %}">Galeria</a></li>
-                                                <li><a href="{%url 'CON' %}">Contacto</a> </li>
-                                                
-                
-                                                {%if user.is_authenticated %}
-                                                        <li><a href="{%url 'ADP' %}">Administrar Insumos</a> </li>                                                                             
-                                                       <li> <a href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
-                                                        <li><a href="">Bienvenido: {{user.first_name}}</a> </li>
-                                                {% else %}
-                                                       <li>  <a href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
-                                                        <li> <a href="{%url 'FORC' %}">Nuevo Usuario</a></li>
-                                                {% endif %}
-                
-                                                                       
-                                        </ul>
-                                </nav>
-                        </header>                 
-        <div class="row">
-                <div class="section foto_cont" class="input-100">
 
-                        <form action="{% url 'ADP' %}" method="POST" class="form1" onsubmit="return validarTodo()">
-                        {% csrf_token %}
-                                  
-                                <div class="form-group">  
-                                        <h2 class="form-titulo" style="font-size:20px">Agregar Productos </h2> 
-                                        <p>Nombre: </p>      
-                                        <input type="text" name="nombre" class="field">                                                      
-                                        
-                                        <p> Precio:</p>                                        
-                                                <input type="number" class="field" min="1" name="precio" placeholder="Requerido" id="precio" required>                                                                                            
-                                        <p>Stock: </p>
-                                                <input type="number" class="field" min="1" name="stock" placeholder="Requerido" id="stock" required> 
-                                       <p> Descripcion:</p>
-                                                <input type="descripcion" name="desc" class="input-500"> 
-                                        <p>Producto:</p>
-                                        
-                                        <select type="text" name="producto" class="input-100">
+{% block estilos %}
+   <link rel="stylesheet" href="{% static 'css/producto2.css' %}">
+{% endblock estilos %}
 
-                                                {% for producto in lista_productos  %}
-                                                <option>{{producto.tipo}}</option>                                                    
-                                                {% endfor %}                                            
-                                        </select>
+{% block contenido %}
+  <div class="row">
+    <div class="section foto_cont" class="input-100">
+       <form action="{% url 'ADP' %}" method="POST" class="form1" onsubmit="return validarTodo()">
+         {% csrf_token %}
+         <div class="form-group">  
+            <h2 class="form-titulo" style="font-size:20px">Agregar Productos </h2> 
+            <p>Nombre: </p>      
+            <input type="text" name="nombre" class="field">                                                      
+            <p> Precio:</p>                                        
+            <input type="number" class="field" min="1" name="precio" placeholder="Requerido" id="precio" required>                                                                                            
+            <p>Stock: </p>
+            <input type="number" class="field" min="1" name="stock" placeholder="Requerido" id="stock" required> 
+            <p> Descripcion:</p>
+            <input type="descripcion" name="desc" class="input-500"> 
+            <p>Producto:</p>
+            <select type="text" name="producto" class="input-100">
+               {% for producto in lista_productos  %}
+                  <option>{{producto.tipo}}</option>                                                    
+               {% endfor %}                                            
+            </select>
+            <input  type="submit" class="btn btn-green"  name ="accion" value="Registrar">
+         </div>                                                                                                                                
+       </form>
+    </div>
 
-                                        <input  type="submit" class="btn btn-green"  name ="accion" value="Registrar">
-                                        
-                                                                           
-                                </div>                                                                                                                                
-                        </form>
-                </div>
-        <section>
-                
+    <section>
+      <div style="font-size: 14px; margin-left:13%; margin-top:10%; font-family: 'Poppins'; ">
+        <table class="table table-striped">
+          <tr scope="col" style="background-color:#1b5583; color:white; " >
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>Stock</td>
+            <td>Descripcion</td>
+            <td>Producto</td>
+            <td>Operaciones </td>
+          </tr>
 
-                        <div style="font-size: 14px; margin-left:13%; margin-top:10%; font-family: 'Poppins'; ">
-                        <table class="table table-striped">
-                                <tr scope="col" style="background-color:#1b5583; color:white; " >
-                                        
-                                        <td>Nombre</td>
-                                        <td>Precio</td>
-                                        <td>Stock</td>
-                                        <td>Descripcion</td>
-                                        <td>Producto</td>
-                                        <td>Operaciones </td>
-
-                                </tr>
-                                 {% for item in lista_i  %}                   
-                        <tr>
-                                <td>{{item.nombre}}</td>
-                                <td>{{item.precio}}</td>
-                                <td>{{item.stock}}</td>
-                                <td>{{item.descripcion}}</td>
-                                <td>{{item.Producto}}</td>
-                                <td>
-                                <a href="{% url 'ELIM' item.nombre %}"> Eliminar</a>  
-                                <a href="{% url 'ACTP' item.nombre  %}"> Actualizar</a>
-                          
-                                </td>
-                                </tr>
-                                {% endfor %}
-                        </table>
-                </div>
-        </section> 
+          {% for item in lista_i  %}                   
+            <tr>
+              <td>{{item.nombre}}</td>
+              <td>{{item.precio}}</td>
+              <td>{{item.stock}}</td>
+              <td>{{item.descripcion}}</td>
+              <td>{{item.Producto}}</td>
+              <td> 
+                <a href="{% url 'ELIM' item.nombre %}"> Eliminar</a>  
+                <a href="{% url 'ACTP' item.nombre  %}"> Actualizar</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </section> 
               
-       
+ <!-- Comprobaciones -->
+    {% if sw == 2%}
+      <script>
+         setTimeout(function(){ alert("Producto Eliminado"); }, 500);
+      </script>
+    {% endif %}
+ 
+    {% if sw == 1%}
+      <script>
+         setTimeout(function(){ alert("Producto Guardado"); }, 500);
+      </script>
+    {% endif %}
 
+    {% if sw == 3%}
+      <script>
+         setTimeout(function(){ alert("Producto no Encontrado"); }, 500);
+      </script>
+    {% endif %}
 
-
-                 {% if sw == 2%}
-                        <script>
-                                
-                                setTimeout(function(){ alert("Producto Eliminado"); }, 500);
-
-                        </script>
-                {% endif %}
-                {% if sw == 1%}
-                        <script>
-                                
-                                setTimeout(function(){ alert("Producto Guardado"); }, 500);
-
-                        </script>
-                {% endif %}
-                {% if sw == 3%}
-                        <script>
-                                
-                                setTimeout(function(){ alert("Producto no Encontrado"); }, 500);
-
-                        </script>
-                {% endif %}
-                {% if sw == 4%}
-                        <script>
-                                
-                                setTimeout(function(){ alert("Producto Actualizado"); }, 500);
-
-                        </script>
-                {% endif %}
-               
-       
-                     
-                           
-            
-                                                                                                                                                                         
-        </div>  
-          <footer>
-                <div class="footer">
-                        <h5>Copyright 2020 © Todos Los Derechos Reservados</h5>      
-                </div>
-        </footer>                                   
-                            
-                                        
-                                
-</body>
-</html>
+    {% if sw == 4%}
+      <script>
+         setTimeout(function(){ alert("Producto Actualizado"); }, 500);
+      </script>
+    {% endif %}
+  </div>  
+{% endblock contenido %}
+    
+        

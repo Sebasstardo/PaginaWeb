@@ -1,107 +1,39 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "Template.html" %}
 {% load static %}
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>CarWash</title>
-         <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
-       <link rel="stylesheet" href="{% static 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css' %}">
-        <script src="{% static 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' %}"></script>
-        <script src="{% static 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js' %}"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
 
-        <script>
-                $(document).ready(function () {
-                        $('.slider').bxSlider();
-                });
-        </script>
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>    
+{% endblock estilos %}
 
-</head>
+{% block contenido %}
 
-<body>
-        <header>
-                <input type="checkbox" name="" id="btnMenu">
-                <label for="btnMenu">
-                        <img class="imgl" src="{% static 'fotos/menu.png'%}" width="20px" height="20px" alt="">
-                </label>
-                <nav class="menu">
-                            
-                                <img style=" margin-left:20px;  margin-top:10px; " src="{% static 'fotos/carwash.png'%}"  alt=""> 
-                                <h3 style=" margin-left:70px; color:white;font-family: 'Poppins'; margin-top:-36px;  "  > CarWashMiguel</h3>
-                           
-                        
-                        <ul >                                             
-                                <li><a href="{%url 'IND' %}">Home</a> </li>
-                                <li> <a href="{%url 'GALE' %}">Galeria</a></li>
-                                <li><a href="{%url 'NOS' %}">Nosotros</a> </li>
-                                
+  <div class="row">
+    <div class="side">
+      <h3>Mail de contacto</h3>
+      <p>contactocarwash@gmail.com</p>
+      <h3>Fono/ Whatsapp</h3>
+      <p>+56 9 90754390</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13314.997308295699!2d-70.5976048!3d-33.4558368!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6443bf5983ddccbf!2sParriPollo!5e0!3m2!1ses-419!2scl!4v1598545174408!5m2!1ses-419!2scl"
+          width="600" height="400" frameborder="0" style="border:0;" allowfullscreen=""                                
+          class="map" aria-hidden="false" tabindex="0"></iframe>                    
+    </div>
 
-                                {%if user.is_authenticated %}
-                                        <li><a href="{%url 'ADP' %}">Administrar Insumos</a> </li>                                                                             
-                                       <li> <a href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
-                                        <li><a href="">Bienvenido: {{user.first_name}}</a> </li>
-                                {% else %}
-                                       <li>  <a href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
-                                        <li> <a href="{%url 'FORC' %}">Nuevo Usuario</a></li>
-                                {% endif %}
-
-                                                       
-                        </ul>
-                </nav>
-        </header>
-
-        <div class="row">
-
-                <div class="side">
-                        <h3>Mail de contacto</h3>
-                        <p>contactocarwash@gmail.com</p>
-                        <h3>Fono/ Whatsapp</h3>
-                        <p>+56 9 90754390</p>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13314.997308295699!2d-70.5976048!3d-33.4558368!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6443bf5983ddccbf!2sParriPollo!5e0!3m2!1ses-419!2scl!4v1598545174408!5m2!1ses-419!2scl"
-                                width="600" height="400" frameborder="0" style="border:0;" allowfullscreen=""                                
-                                class="map"
-                                aria-hidden="false" tabindex="0"></iframe>
-                        
-                </div>
-
-                <form action="" method="POST" class="form1" onsubmit="return validarTodo()">
-
-                        <div class="contenedor">
-                                <p>Nombre Completo: </p>
-                                <input type="text" class="field" minlength="3" maxlength="80" placeholder="Requerido"
-                                        name="txtNombre" id="txtnombre" required>
-
-                                <p> Correo: </p>
-                                <input type="email" class="field" placeholder="Requerido" name="txtCorreo" id="txtemail"
-                                        required>
-
-                                <p> Asunto:</p>
-                                <input type="text" class="field" min="18" max=70 name="txtAsunto" id="txtAsunto"
-                                        required>
-
-
-
-                                <p> Mensaje </p>
-                                <input type="password" class="field" minlenght="8" name="txtMensaje" id="txtMensaje"
-                                        required>
-
-
-                                <input type="submit" class="btn btn-green" value="Enviar">
-                        </div>
-
-                </form>
-        </div>
+    <form action="" method="POST" class="form1" onsubmit=""> <!-- Hacerlo funcional despues -->
+     
+      <div class="contenedor">
+        <p>Nombre Completo: </p>
+        <input type="text" class="field" minlength="3" maxlength="80" placeholder="Requerido" 
+          name="txtNombre" id="txtnombre" required>
+        <p> Correo: </p>
+        <input type="email" class="field" placeholder="Requerido" name="txtCorreo" id="txtemail" required>
+        <p> Asunto:</p>
+        <input type="text" class="field" min="18" max=70 name="txtAsunto" id="txtAsunto" required>
+        <p> Mensaje </p>
+        <input type="password" class="field" minlenght="8" name="txtMensaje" id="txtMensaje" required>
+        <input type="submit" class="btn btn-green" value="Enviar">
+      </div>
+    </form>
+  </div>
+{% endblock contenido %}
         
-       <footer>
-                <div class="footer">
-                        <h5>Copyright 2020 © Todos Los Derechos Reservados</h5>      
-                </div>
-        </footer>
-
-
-
-</body>
-
-</html>

@@ -37,5 +37,13 @@ class MisionVision (models.Model):
     def __str__(self):
         return self.indet
 
+class Galeria(models.Model):
+    ident = models.CharField(max_length = 15, primary_key = True)
+    imagen = models.ImageField(upload_to = 'galery', null = True)
+
+    def __str__(self):
+        return self.ident
+
+
 
 

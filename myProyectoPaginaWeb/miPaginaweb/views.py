@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Producto, Insumo, SliderIndex, MisionVision
+from .models import Producto, Insumo, SliderIndex, MisionVision, Galeria
 #importa la tabla de usuarios al admin
 
 from django.contrib.auth.models import User
@@ -39,7 +39,8 @@ def index(request):
 
 
 def galeria(request):
-    return render(request,'galeria.html')
+    galeria = Galeria.objects.all()
+    return render(request,'galeria.html', {'galeria' : galeria})
 
 
 def formulario(request):
