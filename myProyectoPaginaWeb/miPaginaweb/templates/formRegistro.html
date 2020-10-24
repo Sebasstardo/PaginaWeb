@@ -1,0 +1,49 @@
+{% extends "Template.html" %}
+{% load static %}
+
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>   
+{% endblock estilos %}
+        
+{% block contenido %}
+    <form action="" class="login-form"  method="POST" onsubmit="return validarForRegistro()">
+        {% csrf_token %}
+        <p class="login-text">
+            <h2 style="color:rgba(255, 255, 255, 0.63);font-family: 'Poppins'; padding: 20px 50px;"
+                >Registro de usuario</h2>       
+        </p>
+        <input type="text" class="login-username" autofocus="true" required="true" placeholder="Nombre" minlength="3" 
+               maxlength="80" name="txtNombre" id="txtnombre" />
+        <input type="text" class="login-username" autofocus="true" required="true" placeholder="Apellido" minlength="3" 
+               maxlength="80" name="txtApellido" id="txtapellido" />
+        <input type="mail" class="login-username" autofocus="true" required="true" placeholder="Correo" name="txtCorreo" 
+               id="txtcorreo" />
+        <input type="text" class="login-username" autofocus="true" required="true" placeholder="Nombre Usuario" 
+               name="txtUsuario" id="txtusuario"/>
+        <input type="password" class="login-password" autofocus="true" required="true" placeholder="Contraseña" 
+               name="clave1"  id="txtclave1" />
+        <input type="password" class="login-password" autofocus="true" required="true" placeholder="Repetir Contraseña" 
+               name="clave2" id="txtclave2" />
+        <input type="submit" name="Login" value="Registrar" class="login-submit" />
+    </form>
+
+<div class="underlay-photo"></div>
+<div class="underlay-black"></div> 
+    {% if sw == 1%}
+        <script>
+            setTimeout(function(){ alert("Usuario ya Existe"); }, 500);
+        </script>
+    {% endif %}   
+    {% if sw == 2%}
+        <script>
+            setTimeout(function(){ alert("Contraseña Incorrecta, Escriba Nuevamente"); }, 500);
+        </script>
+    {% endif %}  
+    {% if sw == 3 %}
+        <script>
+            setTimeout(function(){alert("Email ya existente en la base de datos")}; 500);
+        </script>          
+{% endblock contenido %}
+
+    

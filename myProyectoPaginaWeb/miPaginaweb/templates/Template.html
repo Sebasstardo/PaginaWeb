@@ -35,7 +35,7 @@
                 <li><a href="{%url 'GALE' %}">Galeria</a></li>
                 <li><a href="{%url 'CON' %}">Contacto</a></li>
                 {%if user.is_authenticated %}
-                        <li><a href="{%url 'ADP' %}">Administrar Insumos</a> </li>                                                                             
+                        <li><a href="{%url 'ADP' %}">Administrar Insumos</a></li>                                                                             
                         <li><a href="">Bienvenido: {{user.first_name}}</a></li>
                         <li><a href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
                 {% else %}

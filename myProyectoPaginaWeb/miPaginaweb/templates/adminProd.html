@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block estilos %}
-   <link rel="stylesheet" href="{% static 'css/producto2.css' %}">
+   <link rel="stylesheet" href="{% static 'css/adminProductos.css' %}">
 {% endblock estilos %}
 
 {% block contenido %}
   <div class="row">
     <div class="section foto_cont" class="input-100">
-       <form action="{% url 'ADP' %}" method="POST" class="form1" onsubmit="return validarTodo()">
+       <form action="{% url 'ADP' %}" method="POST" class="form1" onsubmit="">
          {% csrf_token %}
          <div class="form-group">  
             <h2 class="form-titulo" style="font-size:20px">Agregar Productos </h2> 
@@ -51,8 +51,8 @@
               <td>{{item.descripcion}}</td>
               <td>{{item.Producto}}</td>
               <td> 
-                <a href="{% url 'ELIM' item.nombre %}"> Eliminar</a>  
-                <a href="{% url 'ACTP' item.nombre  %}"> Actualizar</a>
+                <a href="{% url 'ELIM' item.nombre %}" onclick="return confirm('¿Está seguro que desea eliminar el producto ' + '{{item.nombre}}' + '?');";>Eliminar</a>  
+                <a href="{% url 'ACTP' item.nombre  %}">Actualizar</a>
               </td>
             </tr>
           {% endfor %}
