@@ -1,0 +1,193 @@
+
+@media screen and (min-width:420px) and (max-width:1024px){
+    #btnMenu{
+        display: none;
+    }
+    
+    header label{
+        
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 3em;
+        padding:20px;
+        padding-left: 50%;
+        display: block;
+        background:#1b5583;
+        
+    }
+    .menu{
+        
+       position:fixed;
+       left:12%;
+       top: 1.7%;
+       width: 80%;
+      margin-top: -100%;
+      transition: 0.5s ease-in-out;
+      
+    }
+
+    .menu ul{      
+        list-style-type: none;
+        background:#1b5f83;   
+    }
+
+    .menu ul{
+        border-top: solid 1px rgb(10, 9, 9);
+    }
+
+    .menu li a{
+        
+        display:block;
+        text-align: center;
+        padding: 8px;
+        color: aliceblue;
+        text-decoration: none;
+        list-style: none;
+        
+    }
+    
+    #btnMenu:checked ~.menu{
+        margin:0;
+
+    }
+    /**************************primera seccion de la pagina**********************/
+    
+    .section{
+        display: flex;
+        flex-wrap:wrap;
+         
+    }
+   
+    
+    .foto_cont{
+        text-align: center;  
+        width: 100%;
+        height: 730px;
+        background-image:url('../fotos/azul.jpg'); 
+        background-size: 100%  100% ;
+    
+    }
+    
+    .titulo1 h1{ 
+        
+        padding-top: 9%;
+        line-height: 1.1; /*espacio enntre lineas*/  
+        color: white;
+        font-size: 400%;
+    }
+    .titulo2 h1{ 
+        
+        
+        color: white;
+        font-size: 300%;
+    }
+    .titulo3{
+        padding-top: 100px;
+    }
+    .titulo3 a{
+        text-decoration: none;
+       
+    }
+    .titulo3 h1{
+        font-family: 'Poppins';
+        display: inline;   
+        line-height: 7.5;   
+        color: rgb(255, 253, 253);
+        font-size: 200%;
+        background-color: rgb(177, 9, 9);
+        cursor: pointer;
+        border-radius: 12px;
+        padding: 20px;  
+    }
+    .titulo3 h1:hover{
+        font-family: 'Poppins';
+        color:black;
+        background-color: beige;
+    }
+    /******* PRECIOS **********/
+    .row{
+        display: flex; 
+        flex-wrap: wrap;
+        text-align: center;
+        height: 600px;
+        margin-bottom: 30px;
+    }
+    .side{
+        font-family: 'Poppins';
+        flex:33%;
+        padding: 30px;
+        list-style-type: circle;
+        line-height: 3.1;
+        
+    }
+    .side img{
+        border-radius: 50%;
+    
+    }
+    .side p{
+        list-style-type: circle;
+        
+    }
+    .side2{
+        font-family: 'Poppins';
+        flex:33%;
+        padding: 30px;   
+        line-height: 2.9;
+    }
+    .side2 img{
+        border-radius: 50%;
+    
+    }
+    .side3{
+        font-family: 'Poppins';
+        flex:33%;
+        padding: 30px;  
+        line-height: 2.3;
+    }
+    .side3 img{
+        border-radius: 50%;
+    
+    }
+    
+    /*primer slider*/
+    
+    .container{
+        background-color: white;
+        display: flex;  
+        margin:auto;  
+    
+    }
+    /*segundo slider*/
+    .container2{ 
+        display: flex;       
+        height: 500px;
+        margin:auto;
+    
+    }
+    .title h1{
+        text-align: center;
+        font-family: 'Poppins';
+    }
+    
+    
+    .container2 h5{  
+        text-align: center;  
+        font-size: 30px;
+        font-family: 'Poppins';
+    }
+    .container2 img{
+        display: flex;
+        left:35%;
+        position: relative;
+        border-radius: 50%;
+    }
+    /*ultima parte de la pagina*/
+    .footer{
+        height: 99px;
+        background-color: rgb(100, 91, 91);
+        color: rgba(0, 0, 0, 0.555);
+        text-align: center;
+        padding: 40px;
+    }
+}
