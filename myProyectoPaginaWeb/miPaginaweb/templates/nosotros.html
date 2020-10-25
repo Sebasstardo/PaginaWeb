@@ -1,0 +1,36 @@
+{% extends "Template.html" %}
+{% load static %}
+
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/nosotros.css' %}">
+{% endblock estilos %}
+    
+{%block contenido %}
+    
+    {% for item in myv %}
+      <div class="row">
+        <div class="side2">
+          <h1>Vision</h1>
+          <h3>{{item.vision}}</h3>
+        </div>
+
+        <div class="side">
+          <img src="{%static 'fotos/empleados/emp1.jpg'%}" width="500px" height="300px">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="side">
+          <img src="{%static 'fotos/empleados/emp4.jpg'%}" width="500px" height="300px">
+        </div>
+
+        <div class="side2">
+          <h1>Nuestra Mision</h1>
+          <h3>{{item.mision}}</h3>
+        </div>
+      </div>
+      
+    {% endfor %}
+  
+{% endblock contenido %}
+      

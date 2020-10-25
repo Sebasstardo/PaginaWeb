@@ -1,0 +1,90 @@
+{% extends "Template.html" %}
+{% load static %}
+
+{% block estilos %}
+   <link rel="stylesheet" href="{% static 'css/adminProductos.css' %}">
+{% endblock estilos %}
+
+{% block contenido %}
+  <div class="row">
+    <div class="section foto_cont" class="input-100">
+       <form action="{% url 'ADP' %}" method="POST" class="form1" onsubmit="">
+         {% csrf_token %}
+         <div class="form-group">  
+            <h2 class="form-titulo" style="font-size:20px">Agregar Productos </h2> 
+            <p>Nombre: </p>      
+            <input type="text" name="nombre" class="field">                                                      
+            <p> Precio:</p>                                        
+            <input type="number" class="field" min="1" name="precio" placeholder="Requerido" id="precio" required>                                                                                            
+            <p>Stock: </p>
+            <input type="number" class="field" min="1" name="stock" placeholder="Requerido" id="stock" required> 
+            <p> Descripcion:</p>
+            <input type="descripcion" name="desc" class="input-500"> 
+            <p>Producto:</p>
+            <select type="text" name="producto" class="input-100">
+               {% for producto in lista_productos  %}
+                  <option>{{producto.tipo}}</option>                                                    
+               {% endfor %}                                            
+            </select>
+            <input  type="submit" class="btn btn-green"  name ="accion" value="Registrar">
+         </div>                                                                                                                                
+       </form>
+    </div>
+
+    <section>
+      <div style="font-size: 14px; margin-left:13%; margin-top:10%; font-family: 'Poppins'; ">
+        <table class="table table-striped">
+          <tr scope="col" style="background-color:#1b5583; color:white; " >
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>Stock</td>
+            <td>Descripcion</td>
+            <td>Producto</td>
+            <td>Operaciones </td>
+          </tr>
+
+          {% for item in lista_i  %}                   
+            <tr>
+              <td>{{item.nombre}}</td>
+              <td>{{item.precio}}</td>
+              <td>{{item.stock}}</td>
+              <td>{{item.descripcion}}</td>
+              <td>{{item.Producto}}</td>
+              <td> 
+                <a href="{% url 'ELIM' item.nombre %}" onclick="return confirm('¿Está seguro que desea eliminar el producto ' + '{{item.nombre}}' + '?');";>Eliminar</a>  
+                <a href="{% url 'ACTP' item.nombre  %}">Actualizar</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </section> 
+              
+ <!-- Comprobaciones -->
+    {% if sw == 2%}
+      <script>
+         setTimeout(function(){ alert("Producto Eliminado"); }, 500);
+      </script>
+    {% endif %}
+ 
+    {% if sw == 1%}
+      <script>
+         setTimeout(function(){ alert("Producto Guardado"); }, 500);
+      </script>
+    {% endif %}
+
+    {% if sw == 3%}
+      <script>
+         setTimeout(function(){ alert("Producto no Encontrado"); }, 500);
+      </script>
+    {% endif %}
+
+    {% if sw == 4%}
+      <script>
+         setTimeout(function(){ alert("Producto Actualizado"); }, 500);
+      </script>
+    {% endif %}
+  </div>  
+{% endblock contenido %}
+    
+        

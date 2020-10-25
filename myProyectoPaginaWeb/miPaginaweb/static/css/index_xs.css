@@ -1,0 +1,231 @@
+
+@media screen and (max-width:420px) {
+    
+    /***********************NAVEGADOR****************************/
+    #btnMenu{
+        display: none;
+    }
+  
+    header label{
+        
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 3em;
+        padding:20px;
+        padding-left: 50%;
+        display: block;
+        background:#1b5583;
+        
+    }
+    .menu{
+        
+       position:fixed;
+       left:12%;
+       background: rgb(255, 255, 255);
+       top: 7.3%;
+       width: 80%;
+      margin-top: -70%;
+      transition: 0.5s ease-in-out;
+      
+    }
+    .menu ul{
+        list-style-type: none;
+            background:#1b5f83;
+    
+    }
+    .menu ul{
+        border-top: solid 1px rgb(10, 9, 9);
+    }
+    .menu li a{
+        font-family: 'Poppins';
+        display:block;
+        text-align: center;
+        padding: 8px;
+        color: aliceblue;
+        text-decoration: none;
+        list-style: none;
+        
+    }
+    
+    #btnMenu:checked ~.menu{
+        margin:0;
+
+    }
+  
+    /**************************primera seccion de la pagina**********************/
+  
+    
+    
+    .foto_cont{
+        text-align: center;  
+        width: 100%;
+        height: 630px;
+        background-image:url('../fotos/azul.jpg'); 
+        background-size: 100%  100% ;
+    
+    }
+    
+    .titulo1 h1{ 
+        
+        padding-top: 70px;
+       
+        
+        line-height: 1.1;  
+        color: white;
+        font-size: 310%;
+    }
+    .titulo2 h1{ 
+        font-family:'Anton';   
+        
+        color: white;
+        font-size: 200%;
+    }
+    .titulo3{
+        padding-top: 100px;
+    }
+    .titulo3 a{
+        text-decoration: none;
+       
+    }
+    .titulo3 h1{
+        font-family: 'Poppins';
+        display: inline;   
+        line-height: 7.5;   
+        color: rgb(255, 253, 253);
+        font-size: 150%;
+        background-color: rgb(177, 9, 9);
+        cursor: pointer;
+        border-radius: 12px;
+        padding: 20px;  
+    }
+    .titulo3 h1:hover{
+        font-family: 'Poppins';
+        color:black;
+        background-color: beige;
+    }
+   
+    /***********MENU PRECIO********/
+    .row{
+        display: flex; 
+        flex-wrap: wrap;
+        text-align: center;
+        height: 700px;
+        width: 100%;
+        margin: 30px;
+    }
+    .side{
+        font-family: 'Poppins';
+        flex:10%;
+        padding: 30px;
+        list-style-type: circle;
+        line-height: 2.5;
+        width:20%;
+     
+    }
+    .side img{
+        border-radius: 50%;
+        width:40%;
+    
+    }
+    .side h2{
+        font-size:100%;
+        line-height: 1.5;
+    }
+    .side h1{
+        font-size: 150%;
+    }
+    .side p{
+        list-style-type: circle;
+        
+    }
+    .side2{
+        font-family: 'Poppins';
+        flex:10%;
+        padding: 30px;   
+        line-height: 1.9;
+        width:20%;
+    }
+    .side2 img{
+        border-radius: 50%;
+        width:40%;
+    
+    }
+    .side2 h1{
+        font-size: 150%;
+    }
+    .side2 h2{
+        font-size:100%;
+        line-height: 1.5;
+    }
+    .side3{
+        font-family: 'Poppins';
+        flex:5%;
+        padding: 30px;  
+        line-height: 1.5;
+        width:15%;
+    }
+    .side3 img{
+        border-radius: 50%;
+        width:60%;
+    
+    }
+    .side3 h1{
+        font-size:130%;
+        
+    }
+    .side3 h2{
+        font-size:100%;
+        line-height: 1.5;
+    }
+    /*linea separadora*/
+    .line{
+        background-color: rgba(0, 0, 0, 0.068);
+        height: 2px;
+    }
+    
+   /******************SLIDER****************/
+    
+    .container{
+        flex-wrap: wrap;
+        background-color: white;
+        display: flex;  
+        margin:auto;  
+        
+    }
+   
+    /*segundo slider*/
+    .container2{ 
+        flex-wrap:wrap;
+        display: flex;       
+        height: 500px;
+        margin:auto;
+       
+    }
+    .title h1{
+        text-align: center;
+        font-family: 'Poppins';
+    }
+    
+    
+    .container2 h5{  
+        text-align: center;  
+        font-size: 30px;
+        font-family: 'Poppins';
+    }
+    .container2 img{
+        display: flex;    
+        left:3%;
+        position: relative;
+        border-radius: 10%;
+        
+    }
+    /*ultima parte de la pagina*/
+    .footer{
+        height: 99px;
+        background-color: rgb(100, 91, 91);
+        color: rgba(0, 0, 0, 0.555);
+        text-align: center;
+        padding: 40px;
+    }
+}

@@ -1,0 +1,376 @@
+*{
+    margin:0px;
+   padding:0px;
+   box-sizing: border-box;
+   list-style:none;
+}
+@media screen and (min-width:1025px) and (max-width:2000px){
+    header {
+        
+        background:#1b5583;
+        width: 100%;
+        height: 60px;
+        z-index: 100;
+        position: fixed;
+        top: 0;
+     
+             
+}
+#btnMenu{
+    display: none;
+}
+
+header label{
+    display: none;   
+    
+    width: 80px;
+    height: 20px;
+
+}
+header label:hover{
+    cursor: pointer;
+}
+
+.menu ul {
+    margin-right: 40px;
+   float: right;
+   margin-top:-20px; 
+    display:flex;
+}
+.menu li a {
+    font-size:14px;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: "Poppins";
+
+}
+
+.menu li:hover{
+    text-decoration: underline;
+}
+/*primera seccion de la pagina*/
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;  
+    width: 100%;
+    height: 600px;
+    background-color:  rgb(255, 255, 255);
+   
+
+}
+.contenido{
+    flex-wrap: wrap;
+   
+    width:  100%;
+    height: 50%;
+    padding-top: 70px;
+    padding-left:230px;
+
+}
+/*linea separadora*/
+.line{
+    background-color: rgba(0, 0, 0, 0.068);
+    height: 5px;
+}
+.contenido2{
+    flex-wrap: wrap;
+    width: 100%;
+    height: 50%;
+    padding-top: 50px;
+    padding-left:230px;
+
+}
+.contenido h1{
+    font-family: 'Poppins';
+    text-align: left;
+}
+.contenido2 h1{
+    font-family: 'Poppins';
+    text-align: left;
+}
+
+
+
+div.galeria {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 280px;
+    height: 200px;
+  }
+  
+  div.galeria:hover {
+    border: 1px solid #777;
+    filter: sepia(40%);  
+   transform:scale(0.8);
+    -ms-transform:scale(0.8);
+  }
+  
+  div.galeria img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+
+ /*ultima parte de la pagina*/
+ .footer{
+    height: 99px;
+    background-color: rgb(100, 91, 91);
+    color: rgba(0, 0, 0, 0.555);
+    text-align: center;
+    padding: 40px;
+}
+}
+@media screen and (min-width:420px) and (max-width:1024px) {
+    #btnMenu{
+        display: none;
+    }
+  
+    header label{
+        
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 3em;
+        padding:20px;
+        padding-left: 50%;
+        display: block;
+        background:#1b5583;
+        
+    }
+    .menu{
+        
+       position:fixed;
+       left:12%;
+       background: rgb(255, 255, 255);
+       top: 4.7%;
+       width: 80%;
+      margin-top: -100%;
+      transition: 0.5s ease-in-out;
+      
+    }
+    .menu ul{
+        list-style-type: none;
+            background:#1b5f83;
+    
+    }
+    .menu ul{
+        border-top: solid 1px rgb(10, 9, 9);
+    }
+    .menu li a{
+        
+        display:block;
+        text-align: center;
+        padding: 8px;
+        color: aliceblue;
+        text-decoration: none;
+        list-style: none;
+        
+    }
+    
+    #btnMenu:checked ~.menu{
+        margin:0;
+
+    }
+/*primera seccion de la pagina*/
+.row{
+  
+    flex-wrap: wrap;
+    text-align: center;  
+    width: 680px;
+    height: 630px;
+    background-color:  rgb(255, 255, 255);
+   
+
+}
+.contenido{
+    position:flex;
+    padding-top: 50px;
+    padding-left:100px;
+
+}
+.contenido2{
+   
+    padding-top: 50px;
+    padding-left:70px;
+
+}
+.contenido h1{
+    
+    font-family: 'Poppins';
+    text-align: left;
+}
+.contenido2 h1{
+    font-family: 'Poppins';
+    text-align: left;
+}
+.line{
+    background-color: rgba(0, 0, 0, 0.068);
+    height: 5px;
+}
+
+
+
+div.galeria {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+    height: 200px;
+  }
+  
+  div.galeria:hover {
+    border: 1px solid #777;
+    
+  }
+  
+  div.galeria img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+
+ /*ultima parte de la pagina*/
+ .footer{
+    height: 99px;
+    background-color: rgb(100, 91, 91);
+    color: rgba(0, 0, 0, 0.555);
+    text-align: center;
+    padding: 40px;
+}
+
+}
+@media screen and (max-width:420px){
+    #btnMenu{
+        display: none;
+    }
+  
+    header label{
+        
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 3em;
+        padding:20px;
+        padding-left: 50%;
+        display: block;
+        background:#1b5583;
+        
+    }
+    .menu{
+        
+       position:fixed;
+       left:12%;
+       background: rgb(255, 255, 255);
+       top: 7.3%;
+       width: 80%;
+      margin-top: -70%;
+      transition: 0.5s ease-in-out;
+      
+    }
+    .menu ul{
+        list-style-type: none;
+            background:#1b5f83;
+    
+    }
+    .menu ul{
+        border-top: solid 1px rgb(10, 9, 9);
+    }
+    .menu li a{
+        
+        display:block;
+        text-align: center;
+        padding: 8px;
+        color: aliceblue;
+        text-decoration: none;
+        list-style: none;
+        
+    }
+    
+    #btnMenu:checked ~.menu{
+        margin:0;
+
+    }
+/*primera seccion de la pagina*/
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;  
+    width: 100%;
+    height: 1400px;
+    background-color:  rgb(255, 255, 255);
+   
+
+}
+.contenido{
+    
+    width:  100%;
+    height: 10%;
+    padding-top: 50px;
+    padding-left:30px;
+
+}
+.contenido2{
+    width: 100%;
+    height: 10%;
+    padding-top: 50px;
+    padding-left:30px;
+
+}
+.contenido h1{
+    font-family: 'Poppins';
+    text-align: left;
+}
+.contenido2 h1{
+    font-family: 'Poppins';
+    text-align: left;
+}
+
+
+
+div.galeria {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 280px;
+    height: 200px;
+  }
+  
+  div.galeria:hover {
+    border: 1px solid #777;
+
+  }
+  
+  div.galeria img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+ /*ultima parte de la pagina*/
+ .footer{
+    height: 99px;
+    background-color: rgb(100, 91, 91);
+    color: rgba(0, 0, 0, 0.555);
+    text-align: center;
+    padding: 40px;
+}
+
+}

@@ -1,0 +1,54 @@
+{% extends "Template.html" %}
+{% load static %}
+
+{% block estilos %}
+   <link rel="stylesheet" href="{% static 'css/producto.css' %}">
+{% endblock estilos %}
+
+{% block contenido %}
+  <div class="section foto_cont">
+    <form action="{%url 'ACTPROD'%}" method="POST" class="form1" onsubmit="return validarTodo()">
+      {% csrf_token %}
+        <div class="contenedor">  
+          <p>Nombre: </p>      
+          <input type="text" value="{{ins.nombre}}" name="nombre" class="field">                                                      
+          <p> Precio:</p>                                        
+          <input type="number" value="{{ins.precio}}" class="field" min="1" name="precio" placeholder="Requerido" 
+             id="precio" required>                                                                                            
+          <p>Stock: </p>
+          <input type="number" value="{{ins.stock}}" class="field" min="1" name="stock" placeholder="Requerido" 
+             id="stock" required> 
+          <p> Descripcion:</p>
+          <input type="descripcion" value="{{ins.desc}}" name="desc" class="input-100"> 
+          <p>Producto:</p>
+          <select type="text"value="{{ins.producto}}" name="producto" class="input-100">
+            {% for producto in lista_productos  %}
+              <option>{{producto.tipo}}</option>                                                    
+            {% endfor %}                                            
+          </select>
+          <input  type="submit" class="btn btn-green"  value="Actualizar">
+        </div>                                                                                                                                
+    </form>
+  </div>
+  
+  <div style="text-align: center;color:blue;">
+  <h1> </h1>   
+  </div>
+  
+  {% if sw == 1%}
+    <script>
+      setTimeout(function(){ alert("Producto Guardado"); }, 500);
+    </script>
+  {% endif %}
+
+  {% if sw == 3%}
+    <script>
+      setTimeout(function(){ alert("Producto no Encontrado"); }, 500)  
+    </script>
+  {% endif %}
+  {% if sw == 4%}
+    <script>
+      setTimeout(function(){ alert("Producto Actualizado"); }, 500)  
+    </script>
+  {% endif %}
+{% endblock contenido %}  
