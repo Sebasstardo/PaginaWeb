@@ -2,7 +2,6 @@ from django.test import TestCase
 import unittest
 from .models import MisionVision,Insumo,Galeria,Producto
 
-
 # Create your tests here.
 
 class TestUno(unittest.TestCase):
@@ -11,7 +10,6 @@ class TestUno(unittest.TestCase):
       m = MisionVision (
        mision="nuetra mision...", vision="nuesta vision e.."
       )
-
       valor=0
       try:
          m.save()
@@ -19,10 +17,6 @@ class TestUno(unittest.TestCase):
       except:
          valor = 0
       self.assertEqual(valor,1)
-
-
-if __name__== "__main__":
-    unittest.main()
 
 class TestDos(unittest.TestCase):
     def grabar_insumo(self):
@@ -39,9 +33,6 @@ class TestDos(unittest.TestCase):
     def listar_insumo(self):
         li = Insumo.objects.all()
         self.assertIsInstance(li,Insumo)
-    
-if __name__ == "__main__":
-    unittest.main()
 
 class TestTres(unittest.TestCase):
     def grabar_imagen_galeria(self):
@@ -59,9 +50,6 @@ class TestTres(unittest.TestCase):
         lg = Galeria.objects.all()
         self.assertIsInstance(lg,Galeria)
     
-if __name__ == "__main__":
-    unittest.main()
-
 class TestCuatro(unittest.TestCase):
     def agregar_producto(self):
         g = Producto(tipo="Cepillo",marca="3M"
