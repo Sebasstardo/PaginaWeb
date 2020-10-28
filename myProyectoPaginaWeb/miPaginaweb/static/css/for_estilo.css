@@ -11,7 +11,7 @@
   header {
         
     background:#1b5583;
-    width: 100%;
+   
     height: 60px;
     z-index: 100;
     position: fixed;
@@ -57,23 +57,17 @@ text-decoration: underline;
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 body, html {
-  height: 100%;
-}
-body {
-  font-family: 'Open Sans';
-  font-weight: 100;
-  display: flex;
-  overflow: hidden;
+  height: 500px;
 }
 
 
 
 .login-form {
- 
+  
   box-shadow: 0 0 1rem rgb(0, 0, 0);
-  min-height: 10rem;
+
   margin: auto;
-  max-width: 50%;
+  width: 40%;
   padding: .5rem;
 }
 
@@ -125,6 +119,16 @@ body {
   z-index: -1;
 }
 
+.footer{
+  margin-top:200px;
+  height: 130px;
+
+  background-color: rgb(100, 91, 91);
+  color: rgba(0, 0, 0, 0.555);
+  text-align: center;
+  padding: 40px;
+}
+
 @keyframes hue-rotate {
   from {
     -webkit-filter: grayscale(30%) hue-rotate(0deg);
@@ -139,15 +143,15 @@ body {
         display: none;
     }
   
-    header label{
+   .header label{
         
-        position: fixed;
+      
         top: 0;
         width: 100%;
         height: 3em;
         padding:20px;
         padding-left: 50%;
-        display: block;
+       
         background:#1b5583;
         
     }
@@ -164,15 +168,14 @@ body {
     }
     .menu ul{
         list-style-type: none;
-            background:#1b5f83;
-    
+        background:#1b5f83;  
     }
     .menu ul{
-        border-top: solid 1px rgb(10, 9, 9);
+        border-top: solid 1px #1b5f83;
     }
     .menu li a{
         
-        display:block;
+   
         text-align: center;
         padding: 8px;
         color: aliceblue;
@@ -189,24 +192,15 @@ body {
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
-body, html {
-  height: 100%;
-}
-body {
-  font-family: 'Open Sans';
-  font-weight: 100;
-  display: flex;
-  overflow: hidden;
-}
 
 
 
 .login-form {
  
   box-shadow: 0 0 1rem rgb(0, 0, 0);
-  min-height: 10rem;
+  
   margin: auto;
-  max-width: 50%;
+  width: 50%;
   padding: .5rem;
 }
 
@@ -267,11 +261,21 @@ body {
  
   background-image:  url('../fotos/lavados/lav4.jpg');
   background-size: cover;
+  
   z-index: -1;
 }
 .underlay-black {
   background: rgba(0, 0, 0, 0.521);
   z-index: -1;
+ 
+}
+.footer{
+  margin-top:625px;
+  height: 130px;
+  background-color: rgb(100, 91, 91);
+  color: rgba(0, 0, 0, 0.555);
+  text-align: center;
+  padding: 40px;
 }
 
 @keyframes hue-rotate {
@@ -288,12 +292,12 @@ body {
         display: none;
     }
   
-    header label{
+    .navbar {
         
         position: fixed;
         top: 0;
         width: 100%;
-        height: 3em;
+       
         padding:20px;
         padding-left: 50%;
         display: block;
@@ -341,12 +345,7 @@ body {
 body, html {
   height: 100%;
 }
-body {
-  font-family: 'Open Sans';
-  font-weight: 100;
-  display: flex;
-  overflow: hidden;
-}
+
 
 
 
@@ -355,9 +354,10 @@ body {
   box-shadow: 0 0 1rem rgb(0, 0, 0);
   min-height: 10rem;
   margin: auto;
-  max-width: 50%;
+  max-width: 80%;
   padding: .5rem;
 }
+
 
 
 

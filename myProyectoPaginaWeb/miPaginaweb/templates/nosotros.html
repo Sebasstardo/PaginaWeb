@@ -3,6 +3,11 @@
 
 {% block estilos %}
     <link rel="stylesheet" href="{% static 'css/nosotros.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js'"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
+    <link rel="stylesheet" href="{% static 'css/galeria_Lightbox.css' %}">
+    <script src="{% static 'js/galeria_Lightbox.js' %}"></script>  
 {% endblock estilos %}
     
 {%block contenido %}
@@ -15,13 +20,13 @@
         </div>
 
         <div class="side">
-          <img src="{%static 'fotos/empleados/emp1.jpg'%}" width="500px" height="300px">
+          <img src="{%static 'fotos/empleados/emp1.jpg'%}" width="80%" height="80%">
         </div>
       </div>
 
       <div class="row">
         <div class="side">
-          <img src="{%static 'fotos/empleados/emp4.jpg'%}" width="500px" height="300px">
+          <img src="{%static 'fotos/empleados/emp4.jpg'%}" width="80%" height="80%" >
         </div>
 
         <div class="side2">

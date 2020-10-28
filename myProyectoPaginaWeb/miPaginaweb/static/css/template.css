@@ -7,10 +7,8 @@
     list-style: none;
 }
 
-
-/* Estilo para dispositivos grandes */
-
-@media screen and (min-width:1024px) and (max-width:2000px) {
+ /* Estilo para dispositivos grandes */
+ @media screen and (min-width:1025px) and (max-width:2000px){
     /* navegador */
     #navbarPage {
         background: #1b5583;
@@ -19,6 +17,7 @@
     #navbarNavAltMarkup {
         align-content: flex-end;
         align-self: flex-end;
+        text-decoration-color: white;
     }
     #btnMenu {
         display: none;
@@ -39,6 +38,19 @@
     }
     .menu li a {
         font-size: 14px;
+	}
+    .navbar-collapse  a{
+        color:white;
+        text-align: center;
+        padding: 8px;
+        text-decoration: none;
+        list-style: none;
+    }
+    .a{
+        color:white
+    }
+    .navbar-nav {
+        font-size:14px;
         color: white;
         padding: 10px 20px;
         text-decoration: none;
@@ -55,7 +67,6 @@
         padding: 40px;
     }
 }
-
 
 /* Estilo para dispositivos medianos (Tablets) */
 
@@ -91,6 +102,37 @@
     }
     .menu li a {
         display: block;
+	}
+    .navbar {
+        
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding:20px;
+        padding-left: 50%;
+        display: block;
+        background:#1b5583;     
+    }
+    .menu{
+       position:fixed;
+       left:12%;
+       background: rgb(255, 255, 255);
+       top: 7.3%;
+       width: 80%;
+      margin-top: -70%;
+      transition: 0.5s ease-in-out;
+      
+    }
+    .menu ul{
+        list-style-type: none;
+            background:#1b5f83;
+    }
+    .menu ul{
+        border-top: solid 1px rgb(10, 9, 9);
+    }
+    .menu li a{
+        font-family: 'Poppins';
+        display:block;
         text-align: center;
         padding: 8px;
         color: aliceblue;
@@ -123,6 +165,13 @@
         width: 100%;
         height: 3em;
         padding: 20px;
+	}
+    .navbar {
+        
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding:20px;
         padding-left: 50%;
         display: block;
         background: #1b5583;
@@ -156,6 +205,7 @@
         margin: 0;
     }
     .footer {
+        margin-top:168px;
         height: 99px;
         background-color: rgb(100, 91, 91);
         color: rgba(0, 0, 0, 0.555);
