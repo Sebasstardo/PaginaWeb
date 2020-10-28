@@ -3,16 +3,24 @@
 
 {% block estilos %}
     <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
-    <script src="{% static 'js/script.js' %}"></script>   
+    <script src="{% static 'js/script.js' %}"></script> 
+    <link rel="stylesheet" href="{% static 'css/galeria.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jqu
+    ery.bxslider.min.js'"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
+    <link rel="stylesheet" href="{% static 'css/galeria_Lightbox.css' %}">
+    <script src="{% static 'js/galeria_Lightbox.js' %}"></script>  
 {% endblock estilos %}
         
 {% block contenido %}
     <form action="" class="login-form"  method="POST" onsubmit="return validarForRegistro()">
         {% csrf_token %}
         <p class="login-text">
-            <h2 style="color:rgba(255, 255, 255, 0.63);font-family: 'Poppins'; padding: 20px 50px;"
+            <h2 style="color:rgba(255, 255, 255, 0.63);font-family: 'Poppins'; padding: 20px 50px; font-size: 20px; "
                 >Registro de usuario</h2>       
         </p>
+
         <input type="text" class="login-username" autofocus="true" required="true" placeholder="Nombre" minlength="3" 
                maxlength="80" name="txtNombre" id="txtnombre" />
         <input type="text" class="login-username" autofocus="true" required="true" placeholder="Apellido" minlength="3" 
@@ -28,8 +36,8 @@
         <input type="submit" name="Login" value="Registrar" class="login-submit" />
     </form>
 
-<div class="underlay-photo"></div>
-<div class="underlay-black"></div> 
+    <div class="underlay-photo"></div>
+    <div class="underlay-black"></div> 
     {% if sw == 1%}
         <script>
             setTimeout(function(){ alert("Usuario ya Existe"); }, 500);

@@ -340,7 +340,7 @@ body {
     .menu ul{
         border-top: solid 1px rgb(10, 9, 9);
     }
-    .menu li a{
+    .navbar-collapse  a{
         
         display:block;
         text-align: center;

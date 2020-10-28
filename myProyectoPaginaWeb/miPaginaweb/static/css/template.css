@@ -8,7 +8,7 @@
  }
 
  /* Estilo para dispositivos grandes */
- @media screen and (min-width:1024px) and (max-width:2000px){
+ @media screen and (min-width:1025px) and (max-width:2000px){
     /* navegador */
 
     #navbarPage {
@@ -19,6 +19,7 @@
     #navbarNavAltMarkup {
         align-content: flex-end;
         align-self: flex-end;
+        text-decoration-color: white;
     }
     
     
@@ -36,14 +37,21 @@
     header label:hover{
         cursor: pointer;
     }
-    
-    .menu ul {
-        margin-right: 40px;
-       float: right;
-       margin-top:-20px; 
-        display:flex;
+    .navbar-collapse  a{
+        
+        color:white;
+        text-align: center;
+        padding: 8px;
+       
+        text-decoration: none;
+        list-style: none;
+        
     }
-    .menu li a {
+    .a{
+        color:white
+    }
+    .navbar-nav {
+    
         font-size:14px;
         color: white;
         padding: 10px 20px;
@@ -55,6 +63,7 @@
     .menu li:hover{
         text-decoration: underline;
     }
+    
  }
 
 /* Estilo para dispositivos medianos (Tablets) */
@@ -63,70 +72,13 @@
     #btnMenu{
         display: none;
     }
-    
-    header label{
-        
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 3em;
-        padding:20px;
-        padding-left: 50%;
-        display: block;
-        background:#1b5583;
-        
-    }
-    .menu{
-        
-       position:fixed;
-       left:12%;
-       top: 1.7%;
-       width: 80%;
-      margin-top: -100%;
-      transition: 0.5s ease-in-out;
-      
-    }
-
-    .menu ul{      
-        list-style-type: none;
-        background:#1b5f83;   
-    }
-
-    .menu ul{
-        border-top: solid 1px rgb(10, 9, 9);
-    }
-
-    .menu li a{
-        
-        display:block;
-        text-align: center;
-        padding: 8px;
-        color: aliceblue;
-        text-decoration: none;
-        list-style: none;
-        
-    }
-    
-    #btnMenu:checked ~.menu{
-        margin:0;
-
-    }
-}
-
-/* Estilo para dispositivos pequeños (Celulares) */
-@media screen and (max-width:420px) {
-    /* NAVEGADOR */
-    
-    #btnMenu{
-        display: none;
-    }
   
-    header label{
+    
+    .navbar {
         
         position: fixed;
         top: 0;
         width: 100%;
-        height: 3em;
         padding:20px;
         padding-left: 50%;
         display: block;
@@ -167,3 +119,68 @@
         margin:0;
 
     }
+}
+
+/* Estilo para dispositivos pequeños (Celulares) */
+@media screen and (max-width:420px) {
+    /* NAVEGADOR */
+    
+    #btnMenu{
+        display: none;
+    }
+  
+    
+    .navbar {
+        
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding:20px;
+        padding-left: 50%;
+        display: block;
+        background:#1b5583;
+        
+    }
+    .menu{
+        
+       position:fixed;
+       left:12%;
+       background: rgb(255, 255, 255);
+       top: 7.3%;
+       width: 80%;
+      margin-top: -70%;
+      transition: 0.5s ease-in-out;
+      
+    }
+    .menu ul{
+        list-style-type: none;
+            background:#1b5f83;
+    
+    }
+    .menu ul{
+        border-top: solid 1px rgb(10, 9, 9);
+    }
+    .menu li a{
+        font-family: 'Poppins';
+        display:block;
+        text-align: center;
+        padding: 8px;
+        color: aliceblue;
+        text-decoration: none;
+        list-style: none;
+        
+    }
+    
+    #btnMenu:checked ~.menu{
+        margin:0;
+
+    }
+    .footer{
+        margin-top:168px;
+        height: 99px;
+        background-color: rgb(100, 91, 91);
+        color: rgba(0, 0, 0, 0.555);
+        text-align: center;
+        padding: 40px;
+    }
+}
