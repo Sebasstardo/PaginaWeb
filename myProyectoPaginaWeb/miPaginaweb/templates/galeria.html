@@ -2,32 +2,29 @@
 {% load static %}
 
 {% block estilos %}
-    <link rel="stylesheet" href="{% static 'css/galeria.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/galeria_xs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/galeria_sm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/galeria_md.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js'"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
     <link rel="stylesheet" href="{% static 'css/galeria_Lightbox.css' %}">
     <script src="{% static 'js/galeria_Lightbox.js' %}"></script>
 
 {% endblock estilos %}
 
 {% block contenido %}
-    <script>
-      $(document).ready(function () {
-          $('.slider').bxSlider();
-      });
-    </script>
+    <!-- Titulo -->
+    <div class="title">
+      <h1>Galería</h1>
+    </div>
 
-    <div class="row">
-      <div class="contenido">
-          <h1>Galería</h1>
+      <div class="container-fluid">
           {% for item in galeria %}
-            <div class="galeria">
-              <img src="{{item.imagen.url}}"  width="600" height="400" onclick="openModal();currentSlide({{ forloop.counter }})">  
+            <div class="col-xs-6 col-sm-4 col-md-2" id="col">
+              <img class="img-fluid" id ="img" src="{{item.imagen.url}}" onclick="openModal();currentSlide({{ forloop.counter }})">  
             </div>
           {% endfor %}    
       </div>
-    </div>
   
   <!-- Lightbox, extraido de w3Schools -->
 <div id="myModal" class="modal">
@@ -49,8 +46,6 @@
       <div class="caption-container">
         <p id="caption"></p>
       </div>
-  
-      
     </div>
 </div>
 

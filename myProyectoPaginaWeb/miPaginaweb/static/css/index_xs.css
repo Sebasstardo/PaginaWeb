@@ -1,3 +1,5 @@
+/* Hoja de Estilo CSS para dispositivos moviles (<420px) */
+
 @media screen and (max-width:420px) {
     /* Banner */
     .foto_cont {
