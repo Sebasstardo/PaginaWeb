@@ -38,7 +38,7 @@
                 <a class="nav-item nav-link" id="a-nav" href="{%url 'GALE' %}">Galeria</a></li>
                 <a class="nav-item nav-link" id="a-nav" href="{%url 'CON' %}">Contacto</a></li>
                 {%if user.is_authenticated %}
-                    <a class="nav-item nav-link" id="a-nav" href="{%url 'ADP' %}">Administrar Insumos</a></li>
+                    <a class="nav-item nav-link" id="a-nav" href="{%url 'INSADM' %}">Administrar Insumos</a></li>
                     <a class="nav-item nav-link" id="a-nav" href="">Bienvenido: {{user.first_name}}</a></li>
                     <a class="nav-item nav-link" id="a-nav" href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
                 {% else %}

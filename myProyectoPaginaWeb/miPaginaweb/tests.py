@@ -10,7 +10,6 @@ class TestUno(unittest.TestCase):
       m = MisionVision (
        mision="nuetra mision...", vision="nuesta vision e.."
       )
-      valor=0
       try:
          m.save()
          valor = 1
@@ -20,19 +19,34 @@ class TestUno(unittest.TestCase):
 
 class TestDos(unittest.TestCase):
     def grabar_insumo(self):
-        i = Insumo(nombre="spray",precio="9990",descripcion="es el ....",stock="0"
-        )
-        valor = 0
+        i = Insumo(nombre="spray",precio="9990",descripcion="es el ....",stock="10")
+        #Guardar
         try:
             i.save()
-            valor = 1
         except:
-            valor = 0
-            self.assertEqual(valor,1)
+            pass
+        #Buscar
+        try:
+            ins = Insumo.object.get("spray")
+        except:
+            pass
+        self.assertIsNotNone(ins)
         
-    def listar_insumo(self):
-        li = Insumo.objects.all()
+    def buscar_insumo(self):
+        li = Insumo.objects.get("Plumon Corrector")
         self.assertIsInstance(li,Insumo)
+
+    def insumo_repetido(self):
+        ins1 = Insumo(nombre="igual",precio="9990",descripcion="es el ....",stock="10")
+        ins2 = Insumo(nombre="spray",precio="9990",descripcion="es el ....",stock="10")
+        vartest = 0
+        try:
+            ins1.save()
+            ins2.save()
+        except:
+            vartest = 1
+        self.assertEqual(vartest, 0)
+            
 
 class TestTres(unittest.TestCase):
     def grabar_imagen_galeria(self):
@@ -44,7 +58,7 @@ class TestTres(unittest.TestCase):
             valor = 1
         except:
             valor = 0
-            self.assertEqual(valor,1)
+        self.assertEqual(valor,1)
         
     def listar_imagen_galeria(self):
         lg = Galeria.objects.all()
@@ -60,7 +74,7 @@ class TestCuatro(unittest.TestCase):
             valor = 1
         except:
             valor = 0
-            self.assertEqual(valor,1)
+        self.assertEqual(valor,1)
         
     def listar_producto(self):
         lp = Producto.objects.all()
