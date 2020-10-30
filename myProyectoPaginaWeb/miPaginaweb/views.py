@@ -20,7 +20,6 @@ def logout_vista(request):
     return render(request,'index.html', {'autos' : autos})
 
 def login(request):
-    sw = 0
     autos = SliderIndex.objects.all()
     if request.POST:
         usuario = request.POST.get("usuario")
@@ -90,94 +89,40 @@ def nosotros(request):
     return render(request,'nosotros.html',{'myv' : myv})
 
 @login_required(login_url = '/entrar/')
-@permission_required ('miPaginaweb.add_insumo', login_url ='/entrar/') 
-def producto (request):
-    sw = 0
-    productos = Producto.objects.all()  
-    if request.POST:
-        nombre = request.POST.get("nombre")
-        precio = request.POST.get("precio")
-        stock = request.POST.get ("stock")
-        desc = request.POST.get("desc")
-        producto = request.POST.get("producto")
-        obj_producto = Producto.objects.get(tipo = producto)
-
-        ins = Insumo(
-            nombre = nombre,
-            precio = precio,
-            stock = stock,
-            descripcion = desc,
-            Producto = obj_producto
-        )
-        ins.save()
-        sw = 1
-        return render (request, 'producto.html',{'lista_productos' : productos, 'msg' : 'Grabo', 'sw' : sw})
-
-    return render (request, 'producto.html',{'lista_productos' : productos, 'msg' : 'nn', 'sw' : sw})
-
-@login_required(login_url = '/entrar/')
 @permission_required ('miPaginaweb.add_insumo', login_url ='/entrar/')    
-def admin_productos(request):
+def insumoAdmin(request):
     sw = 0
     productos = Producto.objects.all()
     insumo = Insumo.objects.all()
     if request.POST:
         accion = request.POST.get("accion")
-        if accion =="Actualizar":
-            nombre = request.POST.get("nombre")
-            precio = request.POST.get("precio")
-            stock = request.POST.get ("stock")
-            desc = request.POST.get("desc")
-            producto = request.POST.get("producto")
-            obj_producto = Producto.objects.get(tipo=producto)
-            try:
-                ins = Insumo.objects.get(nombre=nombre)
-                ins.precio = precio
-                ins.stock = stock
-                ins.desc = desc
-                ins.producto = obj_producto
-                ins.save()
-                sw = 4
-            except:
-                sw = 3
-            return render (request,'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'msg':'Grabo','sw':sw})
-
-        if accion =="Eliminar":
-            nombre = request.POST.get("nombre")
-            try:
-                ins =Insumo.objects.get(nombre=nombre)
-                ins.delete()
-                sw = 2
-            except:
-                sw = 3
-            return render (request,'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
-
         if accion=="Registrar":
-            nombre = request.POST.get("nombre")
-            precio = request.POST.get("precio")
-            stock = request.POST.get ("stock")
-            desc = request.POST.get("desc")
-            producto = request.POST.get("producto")
+            nombre = request.POST.get("txtNombre")
+            precio = request.POST.get("txtPrecio")
+            stock = request.POST.get ("txtStock")
+            desc = request.POST.get("txtDesc")
+            producto = request.POST.get("txtProducto")
             obj_producto = Producto.objects.get(tipo=producto)
-
-            ins = Insumo(
-                nombre = nombre,
-                precio = precio,
-                stock = stock,
-                descripcion = desc,
-                Producto = obj_producto
-            )
-            ins.save()
-            sw = 1
-            return render (request,'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'msg':'Grabo','sw':sw})
-
-
-    return render(request, 'adminProd.html',{'lista_i':insumo,'lista_productos':productos})
+            try:
+                ins2 = Insumo.objects.get(nombre = nombre)
+                sw = 5
+                return render (request,'insumoAdmin.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
+            except:
+                ins = Insumo(
+                    nombre = nombre,
+                    precio = precio,
+                    stock = stock,
+                    descripcion = desc,
+                    Producto = obj_producto)
+                ins.save()
+                sw = 1
+                return render (request,'insumoAdmin.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
+    return render(request, 'insumoAdmin.html',{'lista_i':insumo,'lista_productos':productos})
 
 
 @login_required(login_url = '/entrar/')
 @permission_required ('miPaginaweb.add_insumo', login_url ='/entrar/') 
-def eliminar(request,id):
+def insumoEliminar(request,id):
     try:
         ins = Insumo.objects.get(nombre = id)
         ins.delete()
@@ -186,34 +131,32 @@ def eliminar(request,id):
         sw = 3
     productos = Producto.objects.all()
     insumo = Insumo.objects.all()
-    return render(request, 'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
+    return render(request, 'insumoAdmin.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
 
 @login_required(login_url = '/entrar/')
 @permission_required ('miPaginaweb.add_insumo', login_url ='/entrar/') 
-def actualizar(request,id):
+def insumoBuscar(request,id):
     productos = Producto.objects.all()
+    insumo = Insumo.objects.all()
     try:
-        ins = Insumo.objects.get(nombre=id)
+        ins = Insumo.objects.get(nombre = id)
         sw = 4
-        return render (request,'actualizarP.html',{'ins':ins,'lista_productos':productos,'sw':sw})
+        return render (request,'insumoUpdate.html',{'ins':ins,'lista_productos':productos,'sw':sw})
     except:
         sw = 3
-   
-    insumo = Insumo.objects.all()
-    return render(request, 'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
+    return render(request, 'insumoAdmin.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
 
 @login_required(login_url = '/entrar/')
 @permission_required ('miPaginaweb.add_insumo', login_url ='/entrar/') 
-def actualiza(request):
+def insumoActualizar(request):
     productos = Producto.objects.all()
-    insumo = Insumo.objects.all()
     if request.POST:
-        nombre = request.POST.get("nombre")
-        precio = request.POST.get("precio")
-        stock = request.POST.get ("stock")
-        desc = request.POST.get("desc")
-        producto = request.POST.get("producto")
-        obj_producto = Producto.objects.get(tipo=producto)
+        nombre = request.POST.get("txtNombre")
+        precio = request.POST.get("txtPrecio")
+        stock = request.POST.get ("txtStock")
+        desc = request.POST.get("txtDesc")
+        producto = request.POST.get("txtProducto")
+        obj_producto = Producto.objects.get(tipo = producto)
         try:
             ins = Insumo.objects.get(nombre = nombre)
             ins.precio = precio
@@ -222,9 +165,12 @@ def actualiza(request):
             ins.producto = obj_producto
             ins.save()
             sw = 4
+            insumo = Insumo.objects.all()
+            return render (request,'insumoAdmin.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
         except:
             sw = 3
-    return render (request,'adminProd.html',{'lista_i':insumo,'lista_productos':productos,'msg':'Grabo','sw':sw})
+    insumo = Insumo.objects.all()
+    return render (request,'insumoAdmin.html',{'lista_i':insumo,'lista_productos':productos,'sw':sw})
 
        
       
