@@ -3,37 +3,38 @@
 
 {% block estilos %}
   <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js'"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
-    <link rel="stylesheet" href="{% static 'css/galeria_Lightbox.css' %}">
-    <script src="{% static 'js/galeria_Lightbox.js' %}"></script>  
 {% endblock estilos %}
 
 {% block contenido %}
-  <form action="{% url 'LOGIN' %}" method="POST" class="login-form" class="form1" onsubmit="return validarTodo()">
-    {% csrf_token %}          
-      <p class="login-text">
-         <h2 style="color:rgba(255, 255, 255, 0.63);font-family: 'Poppins'; padding: 20px 50px; " >Iniciar Sesion</h2>       
-      </p>
-      <input type="text" class="login-username" autofocus="true" required="true" placeholder="Nombre Usuario" 
-         name="usuario" id="usuario"/>
-      <input type="password" class="login-username" autofocus="true" required="true" placeholder="Contraseña" 
-         name="clave"  id="txtclave" />
-      <input type="submit" name="Login" value="Ingresar" class="login-submit" />
-  </form>
-  
-  <div class="underlay-photo"></div>
-  <div class="underlay-black"></div> 
+
+  <div class="title">
+    <h2>Iniciar Sesion</h2>
+  </div>
+  <!-- Formulario -->
+  <div class="container">
+    <div class="container mr-auto" id="Formulario">
+      <form action="{% url 'LOGIN' %}" method="POST" onsubmit="">
+        {% csrf_token %}          
+          <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Nombre Usuario" 
+             name="usuario" id="txtusuario" required/>
+          </div>
+          <div class="form-group">
+            <label for="clave">Contraseña</label>
+            <input type="password" class="form-control" autofocus="true" placeholder="Contraseña" 
+             name="clave" id="txtclave" required/>
+          </div>
+          <input type="submit" name="Login" value="Ingresar" class="login-submit" />
+      </form>
+    </div>
+
+    <div class="underlay-photo"></div>
+    <div class="underlay-black"></div> 
+  </div>
   {% if sw == 1%}
     <script>
-        setTimeout(function(){ alert("Usuario ya Existe"); }, 500);
+        setTimeout(function(){ alert("Usuario y/o Contraseña Incorrecta. Intente Nuevamente"); }, 500);
     </script>
   {% endif %}   
-  {% if sw == 2%}
-    <script>
-        setTimeout(function(){ alert("Contraseña Incorrecta, Escriba Nuevamente"); }, 500);
-
-    </script>
-  {% endif %}            
 {% endblock contenido %}

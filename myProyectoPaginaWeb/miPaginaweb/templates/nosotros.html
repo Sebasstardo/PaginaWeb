@@ -2,34 +2,32 @@
 {% load static %}
 
 {% block estilos %}
-    <link rel="stylesheet" href="{% static 'css/nosotros.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js'"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
-    <link rel="stylesheet" href="{% static 'css/galeria_Lightbox.css' %}">
-    <script src="{% static 'js/galeria_Lightbox.js' %}"></script>  
+    <link rel="stylesheet" href="{% static 'css/nosotros_xs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nosotros_sm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nosotros_md.css' %}">
 {% endblock estilos %}
     
 {%block contenido %}
-    
+    <!-- For para recorrer myv -->
     {% for item in myv %}
-      <div class="row">
-        <div class="side2">
-          <h1>Vision</h1>
-          <h3>{{item.vision}}</h3>
-        </div>
-
-        <div class="side">
-          <img src="{%static 'fotos/empleados/emp1.jpg'%}" width="80%" height="80%">
-        </div>
+      <div class="container">
+          <!-- Vision -->
+          <div class="col-xs-6 col-sm-6 col-md-6 my-auto" id="col">
+            <h1>Vision</h1>
+            <h3>{{item.vision}}</h3>
+          </div>
+          <!-- Imagen Vision -->
+          <div class="col-xs-6 col-sm-6 col-md-6 my-auto" id="col">
+            <img class="img-fluid" src="{%static 'fotos/empleados/emp1.jpg'%}">
+          </div>
       </div>
-
-      <div class="row">
-        <div class="side">
-          <img src="{%static 'fotos/empleados/emp4.jpg'%}" width="80%" height="80%" >
+      <div class="container">
+        <!-- Imagen Mision -->
+        <div class="col-xs-6 col-sm-6 col-md-6 my-auto" id="col">
+          <img class="img-fluid" src="{%static 'fotos/empleados/emp4.jpg'%}">
         </div>
-
-        <div class="side2">
+        <!-- Mision -->
+        <div class="col-xs-6 col-sm-6 col-md-6 my-auto" id="col">
           <h1>Nuestra Mision</h1>
           <h3>{{item.mision}}</h3>
         </div>

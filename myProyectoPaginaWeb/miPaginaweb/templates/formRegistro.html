@@ -4,37 +4,49 @@
 {% block estilos %}
     <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
     <script src="{% static 'js/script.js' %}"></script> 
-    <link rel="stylesheet" href="{% static 'css/galeria.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jqu
-    ery.bxslider.min.js'"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" >
-    <link rel="stylesheet" href="{% static 'css/galeria_Lightbox.css' %}">
-    <script src="{% static 'js/galeria_Lightbox.js' %}"></script>  
 {% endblock estilos %}
         
 {% block contenido %}
-    <form action="" class="login-form"  method="POST" onsubmit="return validarForRegistro()">
-        {% csrf_token %}
-        <p class="login-text">
-            <h2 style="color:rgba(255, 255, 255, 0.63);font-family: 'Poppins'; padding: 20px 50px; font-size: 20px; "
-                >Registro de usuario</h2>       
-        </p>
-
-        <input type="text" class="login-username" autofocus="true" required="true" placeholder="Nombre" minlength="3" 
-               maxlength="80" name="txtNombre" id="txtnombre" />
-        <input type="text" class="login-username" autofocus="true" required="true" placeholder="Apellido" minlength="3" 
-               maxlength="80" name="txtApellido" id="txtapellido" />
-        <input type="mail" class="login-username" autofocus="true" required="true" placeholder="Correo" name="txtCorreo" 
-               id="txtcorreo" />
-        <input type="text" class="login-username" autofocus="true" required="true" placeholder="Nombre Usuario" 
-               name="txtUsuario" id="txtusuario"/>
-        <input type="password" class="login-password" autofocus="true" required="true" placeholder="Contraseña" 
-               name="clave1"  id="txtclave1" />
-        <input type="password" class="login-password" autofocus="true" required="true" placeholder="Repetir Contraseña" 
-               name="clave2" id="txtclave2" />
-        <input type="submit" name="Login" value="Registrar" class="login-submit" />
-    </form>
+    <div class="title">
+        <h2>Registro de Usuarios</h2>
+    </div>
+  <!-- Formulario -->
+    <div class="container mr-auto" id="Formulario">
+      <form action="{% url 'FORC' %}" method="POST" onsubmit="return validarForRegistro()">
+        {% csrf_token %}          
+          <div class="form-group">
+            <label for="txtnombre">Nombre</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Nombre" minlength="3" 
+               maxlength="80" name="txtNombre" id="txtnombre" required/>
+          </div>
+          <div class="form-group">
+            <label for="txtapellido">Apellido</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Apellido" minlength="3" 
+               maxlength="80" name="txtApellido" id="txtapellido" required/>
+          </div>
+          <div class="form-group">
+            <label for="txtcorreo">Correo</label>
+            <input type="mail" class="form-control" autofocus="true" placeholder="Correo" name="txtCorreo" 
+               id="txtcorreo" required />
+          </div>
+          <div class="form-group">
+            <label for="txtusuario">Nombre Usuario</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Nombre Usuario" 
+               name="txtUsuario" id="txtusuario" required/>
+          </div>
+          <div class="form-group">
+            <label for="txtclave1">Contraseña</label>
+            <input type="password" class="form-control" autofocus="true" placeholder="Contraseña" 
+               name="clave1"  id="txtclave1" required/>
+          </div>
+          <div class="form-group">
+            <label for="txtclave2">Repetir Contraseña</label>
+            <input type="password" class="form-control" autofocus="true" placeholder="Repetir Contraseña" 
+               name="clave2" id="txtclave2" required/>
+          </div>
+          <input type="submit" name="Login" value="Registrar" class="login-submit" />
+      </form>
+    </div>
 
     <div class="underlay-photo"></div>
     <div class="underlay-black"></div> 
@@ -45,7 +57,7 @@
     {% endif %}   
     {% if sw == 2%}
         <script>
-            setTimeout(function(){ alert("Contraseña Incorrecta, Escriba Nuevamente"); }, 500);
+            setTimeout(function(){ alert("Las contraseñas no coinciden"); }, 500);
         </script>
     {% endif %}  
     {% if sw == 3 %}

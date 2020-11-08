@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import index,galeria,formulario,contacto,nosotros,producto,login,logout_vista,admin_productos, eliminar,actualizar,actualiza
+from .views import index,galeria,formulario,contacto,nosotros,login,logout_vista,insumoAdmin, insumoEliminar,insumoBuscar,insumoActualizar
 
 urlpatterns = [
     path('',index,name='IND'),
@@ -8,11 +8,10 @@ urlpatterns = [
     path('formulario/',formulario,name='FORC'),
     path('contacto',contacto,name='CON'),
     path('nosotros',nosotros,name='NOS'),
-    path('producto',producto,name='FORP'),
     path('entrar/',login,name='LOGIN'),
     path('salir/',logout_vista,name='LOGOUT'),
-    path('admin_productos/',admin_productos,name='ADP'),
-    path('eliminar_producto/<id>',eliminar, name='ELIM'),
-    path('actualizar_producto/<id>',actualizar,name='ACTP'),
-    path('actualiza/',actualiza,name='ACTPROD')
+    path('admin_insumo/',insumoAdmin,name='INSADM'),
+    path('eliminar_insumo/<id>',insumoEliminar, name='INSDEL'),
+    path('actualizar_insumo/<id>',insumoBuscar,name='INSUPD'),
+    path('modificar/',insumoActualizar,name='UPDATE')
 ]

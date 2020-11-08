@@ -1,5 +1,4 @@
 /* Estilos Generales */
-
 * {
     margin: 0px;
     padding: 0px;
@@ -15,49 +14,21 @@
         top: 0;
     }
     #navbarNavAltMarkup {
-        align-content: flex-end;
+        justify-content: end;
         align-self: flex-end;
         text-decoration-color: white;
+        vertical-align: middle;
     }
-    #btnMenu {
-        display: none;
+    .navbar #navbar-brand{
+        color:white;
     }
-    header label {
-        display: none;
-        width: 80px;
-        height: 20px;
-    }
-    header label:hover {
-        cursor: pointer;
-    }
-    .menu ul {
-        margin-right: 40px;
-        float: right;
-        margin-top: -20px;
-        display: flex;
-    }
-    .menu li a {
-        font-size: 14px;
-	}
-    .navbar-collapse  a{
+    .navbar-collapse #a-nav{
         color:white;
         text-align: center;
-        padding: 8px;
-        text-decoration: none;
-        list-style: none;
-    }
-    .a{
-        color:white
-    }
-    .navbar-nav {
-        font-size:14px;
-        color: white;
         padding: 10px 20px;
         text-decoration: none;
+        list-style: none;
         font-family: "Poppins";
-    }
-    .menu li:hover {
-        text-decoration: underline;
     }
     .footer {
         height: 99px;
@@ -72,75 +43,26 @@
 
 @media screen and (min-width:420px) and (max-width:1024px) {
     /* navegador */
-    #btnMenu {
-        display: none;
-    }
-    header label {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 3em;
-        padding: 20px;
-        padding-left: 50%;
-        display: block;
+    #navbarPage {
         background: #1b5583;
-    }
-    .menu {
-        position: fixed;
-        left: 12%;
-        top: 1.7%;
-        width: 80%;
-        margin-top: -100%;
-        transition: 0.5s ease-in-out;
-    }
-    .menu ul {
-        list-style-type: none;
-        background: #1b5f83;
-    }
-    .menu ul {
-        border-top: solid 1px rgb(10, 9, 9);
-    }
-    .menu li a {
-        display: block;
-	}
-    .navbar {
-        
-        position: fixed;
         top: 0;
-        width: 100%;
-        padding:20px;
-        padding-left: 50%;
-        display: block;
-        background:#1b5583;     
     }
-    .menu{
-       position:fixed;
-       left:12%;
-       background: rgb(255, 255, 255);
-       top: 7.3%;
-       width: 80%;
-      margin-top: -70%;
-      transition: 0.5s ease-in-out;
-      
+    #navbarNavAltMarkup {
+        justify-content: end;
+        align-self: flex-end;
+        text-decoration-color: white;
+        vertical-align: middle;
     }
-    .menu ul{
-        list-style-type: none;
-            background:#1b5f83;
+    .navbar #navbar-brand{
+        color:white;
     }
-    .menu ul{
-        border-top: solid 1px rgb(10, 9, 9);
-    }
-    .menu li a{
-        font-family: 'Poppins';
-        display:block;
+    .navbar-collapse #a-nav{
+        color:white;
         text-align: center;
-        padding: 8px;
-        color: aliceblue;
+        padding: 10px 20px;
         text-decoration: none;
         list-style: none;
-    }
-    #btnMenu:checked~.menu {
-        margin: 0;
+        font-family: "Poppins";
     }
     .footer {
         height: 99px;
@@ -156,56 +78,28 @@
 
 @media screen and (max-width:420px) {
     /* NAVEGADOR */
-    #btnMenu {
-        display: none;
-    }
-    header label {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 3em;
-        padding: 20px;
-	}
-    .navbar {
-        
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding:20px;
-        padding-left: 50%;
-        display: block;
+    #navbarPage {
         background: #1b5583;
+        top: 0;
     }
-    .menu {
-        position: fixed;
-        left: 12%;
-        background: rgb(255, 255, 255);
-        top: 7.3%;
-        width: 80%;
-        margin-top: -70%;
-        transition: 0.5s ease-in-out;
+    #navbarNavAltMarkup {
+        justify-content: end;
+        align-self: flex-end;
+        text-decoration-color: white;
+        vertical-align: middle;
     }
-    .menu ul {
-        list-style-type: none;
-        background: #1b5f83;
+    .navbar #navbar-brand{
+        color:white;
     }
-    .menu ul {
-        border-top: solid 1px rgb(10, 9, 9);
-    }
-    .menu li a {
-        font-family: 'Poppins';
-        display: block;
+    .navbar-collapse #a-nav{
+        color:white;
         text-align: center;
-        padding: 8px;
-        color: aliceblue;
+        padding: 10px 20px;
         text-decoration: none;
         list-style: none;
-    }
-    #btnMenu:checked~.menu {
-        margin: 0;
+        font-family: "Poppins";
     }
     .footer {
-        margin-top:168px;
         height: 99px;
         background-color: rgb(100, 91, 91);
         color: rgba(0, 0, 0, 0.555);
